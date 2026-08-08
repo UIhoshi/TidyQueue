@@ -5,6 +5,7 @@
 - `src/popup/`: browser-locale-aware extension-action launch surface that sends an open message only to an active ChatGPT tab.
 - `src/content/content.js`: browser-locale-aware Shadow-DOM control center plus an always-visible, current-session-draggable TidyQueue launcher in eligible ChatGPT tabs. A capture-phase outside-pointer handler dismisses the panel when the user clicks the underlying ChatGPT page.
 - `PRIVACY_POLICY.md`: public, English privacy-policy surface for the Chrome Web Store submission and repository readers.
+- `README.md` and `docs/images/`: public repository overview and four product screenshots covering the launcher, visual selection, list view, and deletion review.
 
 ## L2 — Flow & Lifecycle
 - `ConversationAdapter.list()` discovers unique sidebar `/c/<id>` links and heuristically classifies ChatGPT date-group headings for time filters.
