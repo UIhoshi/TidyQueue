@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "Quickdel"
+  },
+  "extensionDescription": {
+    "message": "Review and delete ChatGPT conversations locally."
+  },
+  "title": {
+    "message": "정리 대기열"
+  },
+  "visual": {
+    "message": "카드"
+  },
+  "list": {
+    "message": "목록"
+  },
+  "search": {
+    "message": "대화 검색"
+  },
+  "selected": {
+    "message": "개 선택됨"
+  },
+  "selectAll": {
+    "message": "보이는 항목 선택"
+  },
+  "clear": {
+    "message": "선택 지우기"
+  },
+  "review": {
+    "message": "삭제 검토"
+  },
+  "close": {
+    "message": "닫기"
+  },
+  "noConversations": {
+    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+  },
+  "reviewTitle": {
+    "message": "삭제 예정 항목 검토"
+  },
+  "reviewBody": {
+    "message": "확인하기 전에는 삭제되지 않습니다."
+  },
+  "remove": {
+    "message": "제거"
+  },
+  "cancel": {
+    "message": "취소"
+  },
+  "confirm": {
+    "message": "선택 항목 삭제"
+  },
+  "deleting": {
+    "message": "삭제 중"
+  },
+  "upNext": {
+    "message": "다음"
+  },
+  "completed": {
+    "message": "개 완료"
+  },
+  "remaining": {
+    "message": "개 남음"
+  },
+  "pause": {
+    "message": "일시 중지"
+  },
+  "resume": {
+    "message": "계속"
+  },
+  "stop": {
+    "message": "중지하고 나머지 유지"
+  },
+  "milestone": {
+    "message": "Brief pacing pause after $1"
+  },
+  "paused": {
+    "message": "일시 중지됨"
+  },
+  "failed": {
+    "message": "Queue paused for review"
+  },
+  "filterAll": {
+    "message": "All time"
+  },
+  "filterWeek": {
+    "message": "Last 7 days"
+  },
+  "filterMonth": {
+    "message": "Last 30 days"
+  },
+  "filterQuarter": {
+    "message": "Last 90 days"
+  },
+  "unsupported": {
+    "message": "Quickdel only runs on ChatGPT."
+  },
+  "retry": {
+    "message": "Try again"
+  },
+  "empty": {
+    "message": "일치하는 대화가 없습니다."
+  },
+  "previous": {
+    "message": "Previous"
+  },
+  "next": {
+    "message": "Next"
+  },
+  "queueStopped": {
+    "message": "대기열을 중지했습니다. 남은 항목은 유지됩니다."
+  },
+  "queueComplete": {
+    "message": "대기열이 완료되었습니다."
+  },
+  "pageChanged": {
+    "message": "Page changed; queue paused for safety."
+  },
+  "tabHidden": {
+    "message": "Tab left; queue paused for safety."
+  },
+  "adapterError": {
+    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+  },
+  "localeFallback": {
+    "message": "en"
+  },
+  "theme": {
+    "message": "테마"
+  },
+  "themeAuto": {
+    "message": "자동"
+  },
+  "themeDark": {
+    "message": "어두움"
+  },
+  "themeLight": {
+    "message": "밝음"
+  },
+  "themeViolet": {
+    "message": "보랏빛 밤"
+  },
+  "pacing": {
+    "message": "다음 대화 전 안전 간격"
+  },
+  "readyToDelete": {
+    "message": "삭제 준비 완료"
+  },
+  "deletionQueue": {
+    "message": "삭제 대기열"
+  }
+}

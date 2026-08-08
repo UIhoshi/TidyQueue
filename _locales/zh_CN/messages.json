@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "Quickdel"
+  },
+  "extensionDescription": {
+    "message": "Review and delete ChatGPT conversations locally."
+  },
+  "title": {
+    "message": "清理队列"
+  },
+  "visual": {
+    "message": "卡片"
+  },
+  "list": {
+    "message": "列表"
+  },
+  "search": {
+    "message": "搜索对话"
+  },
+  "selected": {
+    "message": "已选择"
+  },
+  "selectAll": {
+    "message": "选择当前可见项"
+  },
+  "clear": {
+    "message": "清除选择"
+  },
+  "review": {
+    "message": "检查删除项"
+  },
+  "close": {
+    "message": "关闭"
+  },
+  "noConversations": {
+    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+  },
+  "reviewTitle": {
+    "message": "检查待删除的对话"
+  },
+  "reviewBody": {
+    "message": "确认前不会删除任何内容。"
+  },
+  "remove": {
+    "message": "移除"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "confirm": {
+    "message": "删除已选项"
+  },
+  "deleting": {
+    "message": "正在删除"
+  },
+  "upNext": {
+    "message": "下一项"
+  },
+  "completed": {
+    "message": "已完成"
+  },
+  "remaining": {
+    "message": "剩余"
+  },
+  "pause": {
+    "message": "暂停"
+  },
+  "resume": {
+    "message": "继续"
+  },
+  "stop": {
+    "message": "停止并保留剩余项"
+  },
+  "milestone": {
+    "message": "Brief pacing pause after $1"
+  },
+  "paused": {
+    "message": "已暂停"
+  },
+  "failed": {
+    "message": "Queue paused for review"
+  },
+  "filterAll": {
+    "message": "所有时间"
+  },
+  "filterWeek": {
+    "message": "最近 7 天"
+  },
+  "filterMonth": {
+    "message": "最近 30 天"
+  },
+  "filterQuarter": {
+    "message": "最近 90 天"
+  },
+  "unsupported": {
+    "message": "Quickdel only runs on ChatGPT."
+  },
+  "retry": {
+    "message": "Try again"
+  },
+  "empty": {
+    "message": "没有匹配的对话。"
+  },
+  "previous": {
+    "message": "Previous"
+  },
+  "next": {
+    "message": "Next"
+  },
+  "queueStopped": {
+    "message": "队列已停止，剩余项目已保留。"
+  },
+  "queueComplete": {
+    "message": "队列已完成。"
+  },
+  "pageChanged": {
+    "message": "页面已变化；队列为安全起见已暂停。"
+  },
+  "tabHidden": {
+    "message": "已离开标签页；队列为安全起见已暂停。"
+  },
+  "adapterError": {
+    "message": "无法确认 ChatGPT 控件；不会继续删除。"
+  },
+  "localeFallback": {
+    "message": "en"
+  },
+  "theme": {
+    "message": "主题"
+  },
+  "themeAuto": {
+    "message": "自动"
+  },
+  "themeDark": {
+    "message": "深色"
+  },
+  "themeLight": {
+    "message": "浅色"
+  },
+  "themeViolet": {
+    "message": "紫夜"
+  },
+  "pacing": {
+    "message": "下一项删除前的安全间隔"
+  },
+  "readyToDelete": {
+    "message": "准备删除"
+  },
+  "deletionQueue": {
+    "message": "删除队列"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "Quickdel"
+  },
+  "extensionDescription": {
+    "message": "Review and delete ChatGPT conversations locally."
+  },
+  "title": {
+    "message": "Cola de limpieza"
+  },
+  "visual": {
+    "message": "Visual"
+  },
+  "list": {
+    "message": "Lista"
+  },
+  "search": {
+    "message": "Buscar conversaciones"
+  },
+  "selected": {
+    "message": "seleccionadas"
+  },
+  "selectAll": {
+    "message": "Seleccionar visibles"
+  },
+  "clear": {
+    "message": "Borrar selección"
+  },
+  "review": {
+    "message": "Revisar eliminación"
+  },
+  "close": {
+    "message": "Cerrar"
+  },
+  "noConversations": {
+    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+  },
+  "reviewTitle": {
+    "message": "Revisar eliminación pendiente"
+  },
+  "reviewBody": {
+    "message": "No se elimina nada hasta confirmar."
+  },
+  "remove": {
+    "message": "Quitar"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "confirm": {
+    "message": "Eliminar seleccionadas"
+  },
+  "deleting": {
+    "message": "Eliminando"
+  },
+  "upNext": {
+    "message": "Siguiente"
+  },
+  "completed": {
+    "message": "completadas"
+  },
+  "remaining": {
+    "message": "restantes"
+  },
+  "pause": {
+    "message": "Pausar"
+  },
+  "resume": {
+    "message": "Reanudar"
+  },
+  "stop": {
+    "message": "Detener y conservar"
+  },
+  "milestone": {
+    "message": "Brief pacing pause after $1"
+  },
+  "paused": {
+    "message": "En pausa"
+  },
+  "failed": {
+    "message": "Queue paused for review"
+  },
+  "filterAll": {
+    "message": "All time"
+  },
+  "filterWeek": {
+    "message": "Last 7 days"
+  },
+  "filterMonth": {
+    "message": "Last 30 days"
+  },
+  "filterQuarter": {
+    "message": "Last 90 days"
+  },
+  "unsupported": {
+    "message": "Quickdel only runs on ChatGPT."
+  },
+  "retry": {
+    "message": "Try again"
+  },
+  "empty": {
+    "message": "No hay conversaciones coincidentes."
+  },
+  "previous": {
+    "message": "Previous"
+  },
+  "next": {
+    "message": "Next"
+  },
+  "queueStopped": {
+    "message": "Cola detenida. Se conservaron las restantes."
+  },
+  "queueComplete": {
+    "message": "Cola completada."
+  },
+  "pageChanged": {
+    "message": "Page changed; queue paused for safety."
+  },
+  "tabHidden": {
+    "message": "Tab left; queue paused for safety."
+  },
+  "adapterError": {
+    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+  },
+  "localeFallback": {
+    "message": "en"
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "themeAuto": {
+    "message": "Automático"
+  },
+  "themeDark": {
+    "message": "Oscuro"
+  },
+  "themeLight": {
+    "message": "Claro"
+  },
+  "themeViolet": {
+    "message": "Noche violeta"
+  },
+  "pacing": {
+    "message": "Pausa de seguridad antes de la siguiente conversación"
+  },
+  "readyToDelete": {
+    "message": "Listo para eliminar"
+  },
+  "deletionQueue": {
+    "message": "Cola de eliminación"
+  }
+}

@@ -1,0 +1,25 @@
+# Tasks — ChatGPT Bulk Delete Extension
+
+- [x] Create MV3 manifest, popup, and content-script shell.
+- [x] Implement conversation discovery adapter and guarded deletion adapter.
+- [x] Implement queue state machine with pause, stop, failure, and milestone behavior.
+- [x] Implement Shadow DOM UI: selection, modes, filters, review dialog, progress queue, and keyboard behavior.
+- [x] Add nine locale catalogs and browser-language fallback.
+- [x] Add Node tests and package validation script.
+- [x] Implement approved UI revision: whole-card selection, Ctrl/Shift range semantics, compact 1–4 column list density through manual controls, reduced card spacing, draggable in-page floating launcher, and Auto/Dark/Light/Violet Night themes.
+- [x] Run requirements, syntax, unit, and package validation.
+- [x] Harden the ChatGPT delete adapter: selected-item action scope, visible-menu/dialog scope, and observed sidebar-removal wait.
+- [x] Preserve the conversation-pane scroll position and input focus while selection/filter state is redrawn; expose the precise delete-adapter failure stage in the paused queue.
+- [x] Treat a closed final-delete confirmation as a safe fallback success signal when ChatGPT retains a stale mounted sidebar link after deletion.
+- [x] Add a visible two-second local safety delay between successful deletion items, with cancellation checks and a queue-state unit test.
+- [x] Add an animated accessible circular queue-progress ring with completed/total count, a smooth secondary progress bar, and preserved active/next-three detail.
+- [x] Stabilize the queue modal dimensions and reserve three animated upcoming-item slots so progress updates do not resize the dialog.
+- [x] Refactor queue rendering to retain one modal DOM tree, patch queue state in place, smoothly animate the persistent SVG ring, and animate only changed upcoming rows.
+- [x] Rebuild the pre-deletion review as the same fixed queue-progress panel, with zeroed progress, a scrollable removable deletion queue, and an in-place visual handoff to live deletion.
+- [x] Dismiss an open Quickdel panel when a pointer event lands outside its Shadow-DOM host, using the existing safe close path.
+- [x] Keep active queues stable during outside clicks or temporary screen-capture focus changes; wait briefly for a selected sidebar link to return after a ChatGPT refresh, and reserve queue action space to prevent row/control overlap.
+- [x] Smooth queue state transitions by batching same-turn snapshots to one animation frame and reserving fixed title/current-item/notice layout slots; animate ring, bar, and changed queue rows without forced reflow.
+- [x] Clamp the fixed queue grid to its actual 90vh shell space at compact widths, so the modal action row stays visible instead of being clipped by browser zoom or a short viewport.
+- [x] Reuse one universal queue-panel DOM tree across review and live deletion, switching mode/action visibility/list content in place so confirmation cannot visually reload the modal.
+- [x] Remove delete-induced route-change pauses that made Resume fail repeatedly; refresh the remembered route after each successful deletion and replace rAF/class row animation with a non-layout Web Animations opacity fade.
+- [ ] Load the unpacked extension in a logged-in Chrome tab, confirm the current ChatGPT DOM selectors, and visually verify containment, floating launcher placement, density interaction, and keyboard flow.

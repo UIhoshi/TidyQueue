@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "Quickdel"
+  },
+  "extensionDescription": {
+    "message": "Review and delete ChatGPT conversations locally."
+  },
+  "title": {
+    "message": "クリーンキュー"
+  },
+  "visual": {
+    "message": "カード"
+  },
+  "list": {
+    "message": "リスト"
+  },
+  "search": {
+    "message": "会話を検索"
+  },
+  "selected": {
+    "message": "件を選択"
+  },
+  "selectAll": {
+    "message": "表示中を選択"
+  },
+  "clear": {
+    "message": "選択を解除"
+  },
+  "review": {
+    "message": "削除内容を確認"
+  },
+  "close": {
+    "message": "閉じる"
+  },
+  "noConversations": {
+    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+  },
+  "reviewTitle": {
+    "message": "削除予定を確認"
+  },
+  "reviewBody": {
+    "message": "確認するまで削除は実行されません。"
+  },
+  "remove": {
+    "message": "削除対象から外す"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "confirm": {
+    "message": "選択項目を削除"
+  },
+  "deleting": {
+    "message": "削除中"
+  },
+  "upNext": {
+    "message": "次の項目"
+  },
+  "completed": {
+    "message": "件完了"
+  },
+  "remaining": {
+    "message": "件残り"
+  },
+  "pause": {
+    "message": "一時停止"
+  },
+  "resume": {
+    "message": "再開"
+  },
+  "stop": {
+    "message": "停止して残りを保持"
+  },
+  "milestone": {
+    "message": "Brief pacing pause after $1"
+  },
+  "paused": {
+    "message": "一時停止中"
+  },
+  "failed": {
+    "message": "Queue paused for review"
+  },
+  "filterAll": {
+    "message": "All time"
+  },
+  "filterWeek": {
+    "message": "Last 7 days"
+  },
+  "filterMonth": {
+    "message": "Last 30 days"
+  },
+  "filterQuarter": {
+    "message": "Last 90 days"
+  },
+  "unsupported": {
+    "message": "Quickdel only runs on ChatGPT."
+  },
+  "retry": {
+    "message": "Try again"
+  },
+  "empty": {
+    "message": "一致する会話はありません。"
+  },
+  "previous": {
+    "message": "Previous"
+  },
+  "next": {
+    "message": "Next"
+  },
+  "queueStopped": {
+    "message": "キューを停止しました。残りは保持されています。"
+  },
+  "queueComplete": {
+    "message": "キューが完了しました。"
+  },
+  "pageChanged": {
+    "message": "Page changed; queue paused for safety."
+  },
+  "tabHidden": {
+    "message": "Tab left; queue paused for safety."
+  },
+  "adapterError": {
+    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+  },
+  "localeFallback": {
+    "message": "en"
+  },
+  "theme": {
+    "message": "テーマ"
+  },
+  "themeAuto": {
+    "message": "自動"
+  },
+  "themeDark": {
+    "message": "ダーク"
+  },
+  "themeLight": {
+    "message": "ライト"
+  },
+  "themeViolet": {
+    "message": "バイオレットナイト"
+  },
+  "pacing": {
+    "message": "次の会話の前の安全間隔"
+  },
+  "readyToDelete": {
+    "message": "削除の準備完了"
+  },
+  "deletionQueue": {
+    "message": "削除キュー"
+  }
+}

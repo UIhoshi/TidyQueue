@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "Quickdel"
+  },
+  "extensionDescription": {
+    "message": "Review and delete ChatGPT conversations locally."
+  },
+  "title": {
+    "message": "Clean Queue"
+  },
+  "visual": {
+    "message": "Visual"
+  },
+  "list": {
+    "message": "List"
+  },
+  "search": {
+    "message": "Search conversations"
+  },
+  "selected": {
+    "message": "selected"
+  },
+  "selectAll": {
+    "message": "Select visible"
+  },
+  "clear": {
+    "message": "Clear selection"
+  },
+  "review": {
+    "message": "Review deletion"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "noConversations": {
+    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+  },
+  "reviewTitle": {
+    "message": "Review pending deletion"
+  },
+  "reviewBody": {
+    "message": "Nothing is deleted until you confirm."
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "confirm": {
+    "message": "Delete selected"
+  },
+  "deleting": {
+    "message": "Deleting now"
+  },
+  "upNext": {
+    "message": "Up next"
+  },
+  "completed": {
+    "message": "completed"
+  },
+  "remaining": {
+    "message": "remaining"
+  },
+  "pause": {
+    "message": "Pause"
+  },
+  "resume": {
+    "message": "Resume"
+  },
+  "stop": {
+    "message": "Stop & keep remaining"
+  },
+  "milestone": {
+    "message": "Brief pacing pause after $1"
+  },
+  "paused": {
+    "message": "Paused"
+  },
+  "failed": {
+    "message": "Queue paused for review"
+  },
+  "filterAll": {
+    "message": "All time"
+  },
+  "filterWeek": {
+    "message": "Last 7 days"
+  },
+  "filterMonth": {
+    "message": "Last 30 days"
+  },
+  "filterQuarter": {
+    "message": "Last 90 days"
+  },
+  "unsupported": {
+    "message": "Quickdel only runs on ChatGPT."
+  },
+  "retry": {
+    "message": "Try again"
+  },
+  "empty": {
+    "message": "No matching conversations."
+  },
+  "previous": {
+    "message": "Previous"
+  },
+  "next": {
+    "message": "Next"
+  },
+  "queueStopped": {
+    "message": "Queue stopped. Remaining items were kept."
+  },
+  "queueComplete": {
+    "message": "Queue complete."
+  },
+  "pageChanged": {
+    "message": "Page changed; queue paused for safety."
+  },
+  "tabHidden": {
+    "message": "Tab left; queue paused for safety."
+  },
+  "adapterError": {
+    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+  },
+  "localeFallback": {
+    "message": "en"
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "themeAuto": {
+    "message": "Auto"
+  },
+  "themeDark": {
+    "message": "Dark"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeViolet": {
+    "message": "Violet night"
+  },
+  "pacing": {
+    "message": "Safety pacing before the next conversation"
+  },
+  "readyToDelete": {
+    "message": "Ready to delete"
+  },
+  "deletionQueue": {
+    "message": "Deletion queue"
+  }
+}
