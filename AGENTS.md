@@ -1,4 +1,4 @@
-﻿# Quickdel — Local Project Rules
+﻿# TidyQueue — Local Project Rules
 
 - Product: a Chrome Manifest V3 extension that helps a user review and delete their own ChatGPT conversations from a visible tab.
 - Privacy: do not add analytics, remote services, account collection, or persistence of selected conversation metadata.

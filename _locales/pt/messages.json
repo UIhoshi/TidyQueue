@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "Fila de limpeza"
@@ -33,7 +33,7 @@
     "message": "Fechar"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "Nenhuma conversa encontrada na barra lateral. Atualize o ChatGPT e tente novamente."
   },
   "reviewTitle": {
     "message": "Rever exclusões pendentes"
@@ -72,40 +72,40 @@
     "message": "Parar e manter restantes"
   },
   "milestone": {
-    "message": "Brief pacing pause after $1"
+    "message": "Breve pausa após $1"
   },
   "paused": {
     "message": "Pausado"
   },
   "failed": {
-    "message": "Queue paused for review"
+    "message": "Fila pausada para revisão"
   },
   "filterAll": {
-    "message": "All time"
+    "message": "Todo o período"
   },
   "filterWeek": {
-    "message": "Last 7 days"
+    "message": "Últimos 7 dias"
   },
   "filterMonth": {
-    "message": "Last 30 days"
+    "message": "Últimos 30 dias"
   },
   "filterQuarter": {
-    "message": "Last 90 days"
+    "message": "Últimos 90 dias"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "O TidyQueue funciona apenas no ChatGPT."
   },
   "retry": {
-    "message": "Try again"
+    "message": "Tentar novamente"
   },
   "empty": {
     "message": "Nenhuma conversa correspondente."
   },
   "previous": {
-    "message": "Previous"
+    "message": "Anterior"
   },
   "next": {
-    "message": "Next"
+    "message": "Próximo"
   },
   "queueStopped": {
     "message": "Fila interrompida. Os itens restantes foram mantidos."
@@ -114,13 +114,13 @@
     "message": "Fila concluída."
   },
   "pageChanged": {
-    "message": "Page changed; queue paused for safety."
+    "message": "A página mudou; a fila foi pausada por segurança."
   },
   "tabHidden": {
-    "message": "Tab left; queue paused for safety."
+    "message": "A aba foi deixada; a fila foi pausada por segurança."
   },
   "adapterError": {
-    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+    "message": "Não foi possível confirmar os controles do ChatGPT. Nenhuma outra conversa foi excluída."
   },
   "localeFallback": {
     "message": "en"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "Fila de exclusão"
+  },
+  "openControlCenter": {
+    "message": "Abrir o TidyQueue"
+  },
+  "localOnly": {
+    "message": "SOMENTE LOCAL"
+  },
+  "viewMode": {
+    "message": "Modo de visualização"
+  },
+  "listDensity": {
+    "message": "Densidade da lista"
+  },
+  "ageFilter": {
+    "message": "Filtro de período das conversas"
+  },
+  "selectConversation": {
+    "message": "Selecionar $1"
+  },
+  "progressLabel": {
+    "message": "$1 de $2 conversas concluídas"
+  },
+  "popupHeading": {
+    "message": "Revise as conversas primeiro."
+  },
+  "popupStatus": {
+    "message": "Abra uma aba do ChatGPT e depois inicie a central de controle local."
+  },
+  "popupOpen": {
+    "message": "Abrir central de controle"
+  },
+  "popupUnsupported": {
+    "message": "Abra o ChatGPT primeiro nesta aba."
+  },
+  "popupReload": {
+    "message": "Recarregue esta aba do ChatGPT e tente novamente."
   }
 }

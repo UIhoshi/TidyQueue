@@ -1,9 +1,10 @@
 # Project Map
 
 ## L1 — Entry & Surface
-- `manifest.json`: Chrome MV3 registration, extension action, inert ChatGPT content-script registration, and only `activeTab` permission.
-- `src/popup/`: extension-action launch surface that sends an open message only to an active ChatGPT tab.
-- `src/content/content.js`: Shadow-DOM control center plus an always-visible, current-session-draggable Quickdel launcher in eligible ChatGPT tabs. A capture-phase outside-pointer handler dismisses the panel when the user clicks the underlying ChatGPT page.
+- `manifest.json`: Chrome MV3 registration, TidyQueue extension/action icon, inert ChatGPT content-script registration, and only `activeTab` permission.
+- `src/popup/`: browser-locale-aware extension-action launch surface that sends an open message only to an active ChatGPT tab.
+- `src/content/content.js`: browser-locale-aware Shadow-DOM control center plus an always-visible, current-session-draggable TidyQueue launcher in eligible ChatGPT tabs. A capture-phase outside-pointer handler dismisses the panel when the user clicks the underlying ChatGPT page.
+- `PRIVACY_POLICY.md`: public, English privacy-policy surface for the Chrome Web Store submission and repository readers.
 
 ## L2 — Flow & Lifecycle
 - `ConversationAdapter.list()` discovers unique sidebar `/c/<id>` links and heuristically classifies ChatGPT date-group headings for time filters.
@@ -15,14 +16,15 @@
 ## L3 — Control & Verification
 - Deletion cannot begin before the injected review dialog's explicit confirmation.
 - `ConversationAdapter.deleteConversation()` reveals and limits DOM actions to the selected sidebar item, finds delete only in a visible open menu and confirmation only in a visible dialog, then observes sidebar removal and final-confirmation closure concurrently; either successful signal advances the queue, so a stale mounted history link does not impose a fixed per-item delay.
-- Grid density is changed exclusively by the visible 1–4 controls; Quickdel does not intercept Ctrl+wheel, so browser zoom remains unchanged.
-- `npm test` uses Node's test runner for queue transitions plus conversation-link/time-group helpers.
-- `npm run package:check` validates the MV3 manifest, required source files, host matches, and all nine locale catalogs.
+- Grid density is changed exclusively by the visible 1–4 controls; TidyQueue does not intercept Ctrl+wheel, so browser zoom remains unchanged.
+- `npm test` uses Node's test runner for queue transitions, conversation-link/time-group helpers, locale-catalog completeness, and fallback substitutions.
+- `npm run package:check` validates the MV3 manifest, required source files, host matches, and the complete UI message set for all nine browser locales.
 
 ## L4 — Base & Dependencies
-- Chrome Manifest V3, browser DOM APIs, Shadow DOM, Chrome i18n, Node built-in test runner.
+- Chrome Manifest V3, browser DOM APIs, Shadow DOM, Chrome i18n with English default and browser-locale matching, Node built-in test runner.
 - No runtime dependencies, backend, analytics, Chrome storage, identity, history, or network permission. Themes use `prefers-color-scheme` only in the active page.
 
 ## Unconfirmed Points
 - [ ] Verify ChatGPT's current delete menu/confirmation selectors in a logged-in Chrome session.
 - [ ] Verify visible layout, overflow, focus order, floating-launcher placement, grid density, and keyboard flow in Chrome.
+- [ ] Verify localized copy and text containment after reloading the extension in the nine supported browser locales.

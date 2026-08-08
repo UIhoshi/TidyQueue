@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "Bereinigungswarteschlange"
@@ -33,7 +33,7 @@
     "message": "Schließen"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "Keine Unterhaltungen in der Seitenleiste gefunden. Aktualisieren Sie ChatGPT und versuchen Sie es erneut."
   },
   "reviewTitle": {
     "message": "Ausstehende Löschung prüfen"
@@ -72,40 +72,40 @@
     "message": "Stoppen und behalten"
   },
   "milestone": {
-    "message": "Brief pacing pause after $1"
+    "message": "Kurze Pause nach $1"
   },
   "paused": {
     "message": "Pausiert"
   },
   "failed": {
-    "message": "Queue paused for review"
+    "message": "Warteschlange zur Überprüfung angehalten"
   },
   "filterAll": {
-    "message": "All time"
+    "message": "Gesamter Zeitraum"
   },
   "filterWeek": {
-    "message": "Last 7 days"
+    "message": "Letzte 7 Tage"
   },
   "filterMonth": {
-    "message": "Last 30 days"
+    "message": "Letzte 30 Tage"
   },
   "filterQuarter": {
-    "message": "Last 90 days"
+    "message": "Letzte 90 Tage"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "TidyQueue funktioniert nur in ChatGPT."
   },
   "retry": {
-    "message": "Try again"
+    "message": "Erneut versuchen"
   },
   "empty": {
     "message": "Keine passenden Unterhaltungen."
   },
   "previous": {
-    "message": "Previous"
+    "message": "Zurück"
   },
   "next": {
-    "message": "Next"
+    "message": "Weiter"
   },
   "queueStopped": {
     "message": "Warteschlange gestoppt. Restliche Elemente wurden behalten."
@@ -114,13 +114,13 @@
     "message": "Warteschlange abgeschlossen."
   },
   "pageChanged": {
-    "message": "Page changed; queue paused for safety."
+    "message": "Seite geändert; Warteschlange wurde zur Sicherheit angehalten."
   },
   "tabHidden": {
-    "message": "Tab left; queue paused for safety."
+    "message": "Tab verlassen; Warteschlange wurde zur Sicherheit angehalten."
   },
   "adapterError": {
-    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+    "message": "ChatGPT-Steuerelemente konnten nicht bestätigt werden. Es wurden keine weiteren Unterhaltungen gelöscht."
   },
   "localeFallback": {
     "message": "en"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "Löschwarteschlange"
+  },
+  "openControlCenter": {
+    "message": "TidyQueue öffnen"
+  },
+  "localOnly": {
+    "message": "NUR LOKAL"
+  },
+  "viewMode": {
+    "message": "Ansichtsmodus"
+  },
+  "listDensity": {
+    "message": "Listendichte"
+  },
+  "ageFilter": {
+    "message": "Altersfilter für Unterhaltungen"
+  },
+  "selectConversation": {
+    "message": "$1 auswählen"
+  },
+  "progressLabel": {
+    "message": "$1 von $2 Unterhaltungen abgeschlossen"
+  },
+  "popupHeading": {
+    "message": "Unterhaltungen zuerst prüfen."
+  },
+  "popupStatus": {
+    "message": "Öffnen Sie einen ChatGPT-Tab und starten Sie dann das lokale Kontrollzentrum."
+  },
+  "popupOpen": {
+    "message": "Kontrollzentrum öffnen"
+  },
+  "popupUnsupported": {
+    "message": "Öffnen Sie ChatGPT zuerst in diesem Tab."
+  },
+  "popupReload": {
+    "message": "Laden Sie diesen ChatGPT-Tab neu und versuchen Sie es erneut."
   }
 }

@@ -2,16 +2,24 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "default_locale": "en",
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab"
+  ],
   "action": {
-    "default_title": "Quickdel",
-    "default_popup": "src/popup/popup.html"
+    "default_title": "TidyQueue",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "128": "assets/tidyqueue-icon-128.png"
+    }
   },
   "content_scripts": [
     {
-      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
       "js": [
         "src/content/i18n.js",
         "src/content/queue-controller.js",
@@ -20,5 +28,8 @@
       ],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "icons": {
+    "128": "assets/tidyqueue-icon-128.png"
+  }
 }

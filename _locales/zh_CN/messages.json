@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "清理队列"
@@ -33,7 +33,7 @@
     "message": "关闭"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "未找到侧边栏对话。请刷新 ChatGPT 后重试。"
   },
   "reviewTitle": {
     "message": "检查待删除的对话"
@@ -72,13 +72,13 @@
     "message": "停止并保留剩余项"
   },
   "milestone": {
-    "message": "Brief pacing pause after $1"
+    "message": "已处理 $1 项后短暂停顿"
   },
   "paused": {
     "message": "已暂停"
   },
   "failed": {
-    "message": "Queue paused for review"
+    "message": "队列已暂停，等待检查"
   },
   "filterAll": {
     "message": "所有时间"
@@ -93,19 +93,19 @@
     "message": "最近 90 天"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "TidyQueue 仅可在 ChatGPT 中运行。"
   },
   "retry": {
-    "message": "Try again"
+    "message": "重试"
   },
   "empty": {
     "message": "没有匹配的对话。"
   },
   "previous": {
-    "message": "Previous"
+    "message": "上一项"
   },
   "next": {
-    "message": "Next"
+    "message": "下一项"
   },
   "queueStopped": {
     "message": "队列已停止，剩余项目已保留。"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "删除队列"
+  },
+  "openControlCenter": {
+    "message": "打开 TidyQueue"
+  },
+  "localOnly": {
+    "message": "仅本地运行"
+  },
+  "viewMode": {
+    "message": "视图模式"
+  },
+  "listDensity": {
+    "message": "列表密度"
+  },
+  "ageFilter": {
+    "message": "对话时间筛选"
+  },
+  "selectConversation": {
+    "message": "选择 $1"
+  },
+  "progressLabel": {
+    "message": "已完成 $1 / $2 个对话"
+  },
+  "popupHeading": {
+    "message": "请先检查对话。"
+  },
+  "popupStatus": {
+    "message": "在当前标签页打开 ChatGPT，然后启动本地控制中心。"
+  },
+  "popupOpen": {
+    "message": "打开控制中心"
+  },
+  "popupUnsupported": {
+    "message": "请先在当前标签页打开 ChatGPT。"
+  },
+  "popupReload": {
+    "message": "请重新加载此 ChatGPT 标签页后重试。"
   }
 }

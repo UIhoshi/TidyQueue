@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "정리 대기열"
@@ -33,7 +33,7 @@
     "message": "닫기"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "사이드바 대화를 찾을 수 없습니다. ChatGPT를 새로고침한 뒤 다시 시도하세요."
   },
   "reviewTitle": {
     "message": "삭제 예정 항목 검토"
@@ -72,40 +72,40 @@
     "message": "중지하고 나머지 유지"
   },
   "milestone": {
-    "message": "Brief pacing pause after $1"
+    "message": "$1개 처리 후 잠시 대기"
   },
   "paused": {
     "message": "일시 중지됨"
   },
   "failed": {
-    "message": "Queue paused for review"
+    "message": "검토를 위해 대기열이 일시 중지되었습니다"
   },
   "filterAll": {
-    "message": "All time"
+    "message": "전체 기간"
   },
   "filterWeek": {
-    "message": "Last 7 days"
+    "message": "최근 7일"
   },
   "filterMonth": {
-    "message": "Last 30 days"
+    "message": "최근 30일"
   },
   "filterQuarter": {
-    "message": "Last 90 days"
+    "message": "최근 90일"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "TidyQueue는 ChatGPT에서만 실행됩니다."
   },
   "retry": {
-    "message": "Try again"
+    "message": "다시 시도"
   },
   "empty": {
     "message": "일치하는 대화가 없습니다."
   },
   "previous": {
-    "message": "Previous"
+    "message": "이전"
   },
   "next": {
-    "message": "Next"
+    "message": "다음"
   },
   "queueStopped": {
     "message": "대기열을 중지했습니다. 남은 항목은 유지됩니다."
@@ -114,13 +114,13 @@
     "message": "대기열이 완료되었습니다."
   },
   "pageChanged": {
-    "message": "Page changed; queue paused for safety."
+    "message": "페이지가 변경되어 안전을 위해 대기열이 일시 중지되었습니다."
   },
   "tabHidden": {
-    "message": "Tab left; queue paused for safety."
+    "message": "탭을 벗어나 안전을 위해 대기열이 일시 중지되었습니다."
   },
   "adapterError": {
-    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+    "message": "ChatGPT 제어 요소를 확인할 수 없습니다. 추가 대화는 삭제되지 않았습니다."
   },
   "localeFallback": {
     "message": "en"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "삭제 대기열"
+  },
+  "openControlCenter": {
+    "message": "TidyQueue 열기"
+  },
+  "localOnly": {
+    "message": "로컬 전용"
+  },
+  "viewMode": {
+    "message": "보기 모드"
+  },
+  "listDensity": {
+    "message": "목록 밀도"
+  },
+  "ageFilter": {
+    "message": "대화 기간 필터"
+  },
+  "selectConversation": {
+    "message": "$1 선택"
+  },
+  "progressLabel": {
+    "message": "대화 $2개 중 $1개 완료"
+  },
+  "popupHeading": {
+    "message": "먼저 대화를 검토하세요."
+  },
+  "popupStatus": {
+    "message": "ChatGPT 탭을 연 다음 로컬 제어 센터를 실행하세요."
+  },
+  "popupOpen": {
+    "message": "제어 센터 열기"
+  },
+  "popupUnsupported": {
+    "message": "이 탭에서 먼저 ChatGPT를 여세요."
+  },
+  "popupReload": {
+    "message": "이 ChatGPT 탭을 새로고침한 뒤 다시 시도하세요."
   }
 }

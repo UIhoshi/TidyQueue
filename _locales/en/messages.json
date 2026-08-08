@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "Clean Queue"
@@ -93,7 +93,7 @@
     "message": "Last 90 days"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "TidyQueue only runs on ChatGPT."
   },
   "retry": {
     "message": "Try again"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "Deletion queue"
+  },
+  "openControlCenter": {
+    "message": "Open TidyQueue"
+  },
+  "localOnly": {
+    "message": "LOCAL ONLY"
+  },
+  "viewMode": {
+    "message": "View mode"
+  },
+  "listDensity": {
+    "message": "List density"
+  },
+  "ageFilter": {
+    "message": "Conversation age filter"
+  },
+  "selectConversation": {
+    "message": "Select $1"
+  },
+  "progressLabel": {
+    "message": "$1 of $2 conversations completed"
+  },
+  "popupHeading": {
+    "message": "Review conversations first."
+  },
+  "popupStatus": {
+    "message": "Open a ChatGPT tab, then launch the local control center."
+  },
+  "popupOpen": {
+    "message": "Open control center"
+  },
+  "popupUnsupported": {
+    "message": "Open ChatGPT in this tab first."
+  },
+  "popupReload": {
+    "message": "Reload this ChatGPT tab, then try again."
   }
 }

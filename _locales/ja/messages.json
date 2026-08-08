@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Quickdel"
+    "message": "TidyQueue"
   },
   "extensionDescription": {
-    "message": "Review and delete ChatGPT conversations locally."
+    "message": "Web AI Chat Cleanup"
   },
   "title": {
     "message": "クリーンキュー"
@@ -33,7 +33,7 @@
     "message": "閉じる"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "サイドバーに会話が見つかりません。ChatGPT を更新してもう一度お試しください。"
   },
   "reviewTitle": {
     "message": "削除予定を確認"
@@ -72,40 +72,40 @@
     "message": "停止して残りを保持"
   },
   "milestone": {
-    "message": "Brief pacing pause after $1"
+    "message": "$1 件処理後に短時間停止します"
   },
   "paused": {
     "message": "一時停止中"
   },
   "failed": {
-    "message": "Queue paused for review"
+    "message": "確認のためキューを一時停止しました"
   },
   "filterAll": {
-    "message": "All time"
+    "message": "すべての期間"
   },
   "filterWeek": {
-    "message": "Last 7 days"
+    "message": "過去 7 日間"
   },
   "filterMonth": {
-    "message": "Last 30 days"
+    "message": "過去 30 日間"
   },
   "filterQuarter": {
-    "message": "Last 90 days"
+    "message": "過去 90 日間"
   },
   "unsupported": {
-    "message": "Quickdel only runs on ChatGPT."
+    "message": "TidyQueue は ChatGPT でのみ動作します。"
   },
   "retry": {
-    "message": "Try again"
+    "message": "再試行"
   },
   "empty": {
     "message": "一致する会話はありません。"
   },
   "previous": {
-    "message": "Previous"
+    "message": "前へ"
   },
   "next": {
-    "message": "Next"
+    "message": "次へ"
   },
   "queueStopped": {
     "message": "キューを停止しました。残りは保持されています。"
@@ -114,13 +114,13 @@
     "message": "キューが完了しました。"
   },
   "pageChanged": {
-    "message": "Page changed; queue paused for safety."
+    "message": "ページが変わったため、安全のためキューを停止しました。"
   },
   "tabHidden": {
-    "message": "Tab left; queue paused for safety."
+    "message": "タブを離れたため、安全のためキューを停止しました。"
   },
   "adapterError": {
-    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+    "message": "ChatGPT の操作部を確認できませんでした。これ以上の会話は削除されません。"
   },
   "localeFallback": {
     "message": "en"
@@ -148,5 +148,41 @@
   },
   "deletionQueue": {
     "message": "削除キュー"
+  },
+  "openControlCenter": {
+    "message": "TidyQueue を開く"
+  },
+  "localOnly": {
+    "message": "ローカルのみ"
+  },
+  "viewMode": {
+    "message": "表示モード"
+  },
+  "listDensity": {
+    "message": "リスト密度"
+  },
+  "ageFilter": {
+    "message": "会話の期間フィルター"
+  },
+  "selectConversation": {
+    "message": "$1 を選択"
+  },
+  "progressLabel": {
+    "message": "$2 件中 $1 件の会話が完了"
+  },
+  "popupHeading": {
+    "message": "先に会話を確認してください。"
+  },
+  "popupStatus": {
+    "message": "ChatGPT のタブを開いてから、ローカル操作センターを起動してください。"
+  },
+  "popupOpen": {
+    "message": "操作センターを開く"
+  },
+  "popupUnsupported": {
+    "message": "このタブで ChatGPT を先に開いてください。"
+  },
+  "popupReload": {
+    "message": "この ChatGPT タブを再読み込みして、もう一度お試しください。"
   }
 }
