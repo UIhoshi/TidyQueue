@@ -184,5 +184,8 @@
   },
   "popupReload": {
     "message": "この ChatGPT タブを再読み込みして、もう一度お試しください。"
+  },
+  "selectionHint": {
+    "message": "Ctrl / Shift で選択"
   }
 }

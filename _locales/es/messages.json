@@ -184,5 +184,8 @@
   },
   "popupReload": {
     "message": "Recarga esta pestaña de ChatGPT y vuelve a intentarlo."
+  },
+  "selectionHint": {
+    "message": "Usa Ctrl / Shift para seleccionar"
   }
 }

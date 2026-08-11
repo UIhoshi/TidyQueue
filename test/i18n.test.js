@@ -25,7 +25,7 @@ test('all nine browser locales provide every UI message and dynamic placeholder'
 test('content and popup use localized labels without changing their layout source', () => {
   const content = fs.readFileSync(path.join(root, 'src', 'content', 'content.js'), 'utf8');
   const popup = fs.readFileSync(path.join(root, 'src', 'popup', 'popup.html'), 'utf8');
-  for (const key of ['openControlCenter', 'localOnly', 'viewMode', 'listDensity', 'ageFilter', 'selectConversation', 'progressLabel']) {
+  for (const key of ['openControlCenter', 'localOnly', 'viewMode', 'listDensity', 'ageFilter', 'selectConversation', 'progressLabel', 'selectionHint']) {
     assert.match(content, new RegExp(`t\\('${key}'`));
   }
   for (const key of ['popupHeading', 'popupStatus', 'popupOpen']) assert.match(popup, new RegExp(`data-i18n="${key}"`));

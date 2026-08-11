@@ -184,5 +184,8 @@
   },
   "popupReload": {
     "message": "Laden Sie diesen ChatGPT-Tab neu und versuchen Sie es erneut."
+  },
+  "selectionHint": {
+    "message": "Mit Strg / Umschalt auswählen"
   }
 }

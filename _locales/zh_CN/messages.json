@@ -184,5 +184,8 @@
   },
   "popupReload": {
     "message": "请重新加载此 ChatGPT 标签页后重试。"
+  },
+  "selectionHint": {
+    "message": "使用 Ctrl / Shift 选择"
   }
 }

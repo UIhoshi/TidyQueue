@@ -184,5 +184,8 @@
   },
   "popupReload": {
     "message": "Reload this ChatGPT tab, then try again."
+  },
+  "selectionHint": {
+    "message": "Ctrl / Shift to select"
   }
 }

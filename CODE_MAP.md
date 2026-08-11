@@ -26,7 +26,7 @@
 - `ensureQueueModal()` creates one universal fixed-size queue panel. `showReview()` switches that persistent panel to review mode with 0/total progress, a scrollable removable deletion queue whose offset is retained when an item is removed, and explicit cancel/confirm controls; `showQueue(snapshot)` switches the same DOM tree back to live mode rather than replacing its dialog. `queueStateChanged(snapshot)` batches same-turn queue emissions into one animation-frame patch. `showQueue(snapshot)` then patches its SVG ring, progress values, controls, and three stable upcoming-row slots in place. The live and review modes share fixed CSS-grid rows for title/current-item/progress/notice/list/actions. On adapter failure only, the notice expands into an accessible two-line error callout so actionable text is not clipped; normal queue layout remains unchanged. Populated changed rows use a Web Animations API opacity-only entrance without synchronous layout reads, movement, or live-modal reload.
 
 ## Localization
-- `_locales/{en,zh_CN,es,fr,de,ja,ko,pt,it}/messages.json` — complete Chrome i18n catalogs for every visible, error, popup, and accessibility string; English is the manifest default while Chrome selects a matching browser locale.
+- `_locales/{en,zh_CN,es,fr,de,ja,ko,pt,it}/messages.json` — complete Chrome i18n catalogs for every visible, error, popup, selection-guidance, and accessibility string; English is the manifest default while Chrome selects a matching browser locale.
 
 ## Validation
 - Requirements brief validator — latest result: pass.
