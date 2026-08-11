@@ -28,8 +28,9 @@
 - Chrome Manifest V3, browser DOM APIs, Shadow DOM, Chrome i18n with English default and browser-locale matching, Node built-in test runner.
 - No runtime dependencies, backend, analytics, Chrome storage, identity, history, or network permission. Themes use `prefers-color-scheme` only in the active page.
 
+## Verified Manual Checks
+- 2026-08-12: User confirmed that deletion works in logged-in ChatGPT and Gemini sessions.
+
 ## Unconfirmed Points
-- [ ] Verify ChatGPT's current delete menu/confirmation selectors in a logged-in Chrome session.
-- [ ] Verify Gemini's current delete menu/confirmation selectors in a logged-in Chrome session with a disposable conversation.
 - [ ] Verify visible layout, overflow, focus order, floating-launcher placement, grid density, and keyboard flow in Chrome.
 - [ ] Verify localized copy and text containment after reloading the extension in the nine supported browser locales.

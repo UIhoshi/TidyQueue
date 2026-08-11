@@ -32,4 +32,4 @@
 - Requirements brief validator — latest result: pass.
 - `npm test` — twenty-nine Node unit tests, including Gemini provider routing, action-container retry selection, visible destructive-control guards, queue error-callout, card-text containment, and sidebar-load notice coverage, route/hidden-tab queue safety, locale completeness, and fallback substitutions; latest result: pass.
 - `npm run package:check` — latest result: pass.
-- Logged-in browser and visual validation remain pending.
+- 2026-08-12 user manual check: deletion works in logged-in ChatGPT and Gemini sessions; visual/layout validation remains pending.

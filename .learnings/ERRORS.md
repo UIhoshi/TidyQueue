@@ -19,7 +19,7 @@
 - Root cause: Gemini renders its row-level more-actions control asynchronously after hover or sidebar refresh, while the first adapter version performed a one-time lookup and could stop at an ancestor containing an unrelated button.
 - Correction: Retry a bounded selected-row lookup with hover events and choose the nearest ancestor that actually owns a visible Gemini more-actions control. The failure notice now expands into a readable error callout instead of clipping its text.
 - Prevention: For reactive provider sidebars, destructive controls must use bounded re-discovery and tests must distinguish an action-owning container from any button container.
-- Verification: Regression tests, full Node test suite, and package validation pass; logged-in Gemini retest remains required.
+- Verification: Regression tests, full Node test suite, and package validation pass; user manually confirmed Gemini and ChatGPT deletion success on 2026-08-12.
 
 ## 2026-08-12 — Shift range selection highlighted plugin text
 - Symptom: After selecting an anchor card, Shift-clicking another card selected the expected range but also triggered native browser text highlighting across TidyQueue copy.
