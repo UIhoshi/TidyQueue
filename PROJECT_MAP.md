@@ -1,7 +1,7 @@
 # Project Map
 
 ## L1 — Entry & Surface
-- `manifest.json`: Chrome MV3 registration, TidyQueue extension/action icon, content-script registration for ChatGPT and Gemini, and only `activeTab` permission.
+- `manifest.json`: Chrome MV3 release registration at version `1.1.0`, TidyQueue extension/action icon, content-script registration for ChatGPT and Gemini, and only `activeTab` permission.
 - `src/popup/`: browser-locale-aware extension-action launch surface that sends an open message only to an active supported ChatGPT or Gemini tab.
 - `src/content/content.js`: browser-locale-aware Shadow-DOM control center plus an always-visible, current-session-draggable TidyQueue launcher in eligible supported tabs. A capture-phase outside-pointer handler dismisses the panel when the user clicks the underlying page.
 - `PRIVACY_POLICY.md`: public, English privacy-policy surface for the Chrome Web Store submission and repository readers.
