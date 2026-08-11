@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-12 — Long conversation text overflowed cards
+- Symptom: Long conversation titles or summaries could extend beyond visual cards; the same risk existed in compact list rows.
+- Root cause: Card text had no width containment or line-clamp/truncation rule.
+- Correction: Contained card overflow, clamped visual titles and summaries to two lines, and made list titles truncate with an ellipsis.
+- Prevention: Conversation-card UI must bound user-provided text separately for visual and compact-list densities.
+- Verification: Card-containment regression coverage, 29 Node tests, and package validation pass; logged-in Visual and List retest remains required.
+
 ## 2026-08-12 — Gemini queue required Resume between deletions
 - Symptom: A Gemini queue could delete one conversation, then pause with a missing action-menu error; pressing Resume could delete only the next item before the same failure recurred.
 - Root cause: Gemini renders its row-level more-actions control asynchronously after hover or sidebar refresh, while the first adapter version performed a one-time lookup and could stop at an ancestor containing an unrelated button.
