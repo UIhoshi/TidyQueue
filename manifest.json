@@ -23,6 +23,7 @@
       "js": [
         "src/content/i18n.js",
         "src/content/queue-controller.js",
+        "src/content/queue-safety-guard.js",
         "src/content/conversation-adapter.js",
         "src/content/content.js"
       ],

@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-12 — Active queue did not pause on route or tab changes
+- Symptom: A deletion queue had page-change and tab-hidden UI messages but no listener or route comparison could trigger them.
+- Root cause: The earlier deletion-navigation workaround wrote an unused remembered URL and removed the runtime route guard, leaving neither URL nor visibility monitoring in the active queue lifecycle.
+- Correction: Added a disposable `QueueSafetyGuard` that watches navigation events, SPA URL changes, and document visibility only while the queue is running; it pauses with the existing safety reasons before another queued item can begin.
+- Prevention: Pair every declared destructive-queue safety state with a tested runtime trigger and lifecycle cleanup path.
+- Verification: Nineteen Node tests and `npm run package:check` pass; logged-in browser validation remains required.
+
 ## 2026-08-08 — JSON packaging validator rejected UTF-8 BOM
 - Symptom: `npm run package:check` failed parsing `manifest.json` with `Unexpected token '\uFEFF'`.
 - Root cause: PowerShell file output created UTF-8 files with a byte-order mark, which the initial Node JSON reader did not normalize.

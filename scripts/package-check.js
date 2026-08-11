@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const requiredFiles = ['src/popup/popup.html', 'src/popup/popup.js', 'src/content/content.js', 'src/content/queue-controller.js', 'src/content/conversation-adapter.js', 'assets/tidyqueue-icon-128.png'];
+const requiredFiles = ['src/popup/popup.html', 'src/popup/popup.js', 'src/content/content.js', 'src/content/queue-controller.js', 'src/content/queue-safety-guard.js', 'src/content/conversation-adapter.js', 'assets/tidyqueue-icon-128.png'];
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\\uFEFF/, ''));
 const manifest = readJson(path.join(root, 'manifest.json'));
 if (manifest.manifest_version !== 3) throw new Error('manifest_version must be 3');

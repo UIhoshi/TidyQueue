@@ -3,13 +3,14 @@
 
   const { t } = globalThis.quickdelI18n;
   const adapter = new globalThis.ConversationAdapter();
-  const state = { open: false, mode: 'visual', density: 3, theme: 'auto', query: '', age: 'all', items: [], selected: new Set(), selectionAnchorId: null, focusSearchOnOpen: false, initialUrl: null };
+  const state = { open: false, mode: 'visual', density: 3, theme: 'auto', query: '', age: 'all', items: [], selected: new Set(), selectionAnchorId: null, focusSearchOnOpen: false };
   const systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
   let fabDrag = null;
   let suppressFabClick = false;
   let rootHost;
   let shadow;
   let queue;
+  let queueSafetyGuard;
   let pendingQueueSnapshot;
   let queueRenderFrame = 0;
 
@@ -34,7 +35,6 @@
     state.items = adapter.list();
     state.selected = new Set();
     state.selectionAnchorId = null;
-    state.initialUrl = window.location.href;
     state.open = true;
     state.focusSearchOnOpen = true;
     applyTheme();
@@ -44,6 +44,7 @@
   function close() {
     state.open = false;
     queue?.stop();
+    queueSafetyGuard?.stop();
     render();
   }
 
@@ -275,16 +276,21 @@
 
   function startQueue() {
     const items = state.items.filter((item) => state.selected.has(item.id));
+    queueSafetyGuard?.stop();
     queue = new globalThis.QueueController(async (item) => {
       const result = await adapter.deleteConversation(item);
-      state.initialUrl = window.location.href;
       return result;
     }, {
-      onChange: queueStateChanged,
+      onChange: (snapshot) => {
+        queueStateChanged(snapshot);
+        if (snapshot.status === 'running') queueSafetyGuard?.start();
+        else queueSafetyGuard?.stop();
+      },
       milestoneEvery: 10,
       pauseDurationMs: 900,
       interItemDelayMs: 2000
     });
+    queueSafetyGuard = new globalThis.QueueSafetyGuard(queue);
     queue.start(items);
   }
 
