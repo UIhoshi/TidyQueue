@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-12 — Gemini queue required Resume between deletions
+- Symptom: A Gemini queue could delete one conversation, then pause with a missing action-menu error; pressing Resume could delete only the next item before the same failure recurred.
+- Root cause: Gemini renders its row-level more-actions control asynchronously after hover or sidebar refresh, while the first adapter version performed a one-time lookup and could stop at an ancestor containing an unrelated button.
+- Correction: Retry a bounded selected-row lookup with hover events and choose the nearest ancestor that actually owns a visible Gemini more-actions control. The failure notice now expands into a readable error callout instead of clipping its text.
+- Prevention: For reactive provider sidebars, destructive controls must use bounded re-discovery and tests must distinguish an action-owning container from any button container.
+- Verification: Regression tests, full Node test suite, and package validation pass; logged-in Gemini retest remains required.
+
 ## 2026-08-12 — Shift range selection highlighted plugin text
 - Symptom: After selecting an anchor card, Shift-clicking another card selected the expected range but also triggered native browser text highlighting across TidyQueue copy.
 - Root cause: The isolated UI did not disable browser text selection for non-editable interface content.

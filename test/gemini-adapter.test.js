@@ -36,3 +36,13 @@ test('Gemini adapter accepts delete only from a visible menu and confirmation di
   assert.equal(adapter.findVisibleMenuAction(), visibleDelete);
   assert.equal(adapter.findVisibleConfirmation(), confirm);
 });
+
+test('Gemini adapter finds the ancestor that actually owns the visible more-actions button', () => {
+  const unrelatedButton = { hidden: false, textContent: 'Pin', getAttribute: () => null };
+  const moreButton = { hidden: false, textContent: 'More options', getAttribute: () => null };
+  const actionRow = { parentElement: null, querySelectorAll: () => [moreButton] };
+  const nestedCopy = { parentElement: actionRow, querySelectorAll: () => [unrelatedButton] };
+  const link = { parentElement: nestedCopy };
+  const adapter = new GeminiAdapter({}, {});
+  assert.equal(adapter.findActionContainer(link), actionRow);
+});

@@ -10,7 +10,7 @@ review queue. No write occurs before confirmation.
 ## Delete one conversation
 
 Actor: confirmed queue. Precondition: selected Gemini sidebar row remains available. The adapter
-reveals controls only on that row, opens its menu, finds a visible delete action, then finds a
-visible delete confirmation dialog. It waits for row removal or confirmation closure before the
-shared queue can advance. Missing controls, route changes, or hidden tabs pause the queue; no
-next item begins.
+boundedly re-finds and hovers that row until its own visible action control is available, opens its
+menu, finds a visible delete action, then finds a visible delete confirmation dialog. It waits for
+row removal or confirmation closure before the shared queue can advance. Missing controls, route
+changes, or hidden tabs pause the queue; no next item begins.

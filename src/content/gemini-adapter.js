@@ -47,9 +47,13 @@
     async deleteConversation(item) {
       const link = await waitFor(() => this.findLink(item.id), 4000);
       if (!link) throw new Error('Gemini conversation did not return to the sidebar after it refreshed.');
-      const container = this.closestActionContainer(link);
-      this.revealConversationActions(link, container);
-      const more = this.findActionButton(container);
+      const more = await waitFor(() => {
+        const refreshedLink = this.findLink(item.id);
+        if (!refreshedLink) return null;
+        this.revealConversationActions(refreshedLink, refreshedLink.parentElement);
+        const container = this.findActionContainer(refreshedLink);
+        return container ? this.findActionButton(container) : null;
+      }, 2500);
       if (!more) throw new Error('Gemini conversation action menu was not found for the selected sidebar item.');
       more.click();
 
@@ -79,13 +83,12 @@
       }
     }
 
-    closestActionContainer(link) {
+    findActionContainer(link) {
       let node = link.parentElement;
       for (let depth = 0; node && depth < 6; depth += 1, node = node.parentElement) {
-        const buttons = [...(node.querySelectorAll?.('button') || [])];
-        if (buttons.length > 0 && buttons.length <= 4) return node;
+        if (this.findActionButton(node)) return node;
       }
-      return link.parentElement;
+      return null;
     }
 
     findActionButton(container) {
