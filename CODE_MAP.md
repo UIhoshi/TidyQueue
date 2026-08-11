@@ -1,14 +1,16 @@
 # Code Map
 
 ## Entrypoints
-- `manifest.json` — MV3 registration, TidyQueue action popup/icon, content-script order, and ChatGPT host scope.
-- `src/popup/popup.js` — localizes popup copy through Chrome i18n, validates the active tab, then sends `quickdel:open`.
-- `src/content/content.js` — creates the closed, browser-locale-aware Shadow-DOM UI and draggable persistent launcher, owns ephemeral selection/density/theme state, responds to the popup, and starts/stops the active queue's route and tab-visibility safety guard.
+- `manifest.json` — MV3 registration, TidyQueue action popup/icon, content-script order, and supported ChatGPT/Gemini host scope.
+- `src/popup/popup.js` — localizes popup copy through Chrome i18n, validates a supported active tab, then sends `quickdel:open`.
+- `src/content/content.js` — creates the unchanged browser-locale-aware Shadow-DOM UI and draggable persistent launcher, owns ephemeral selection/density/theme state, selects the provider adapter, responds to the popup, and starts/stops the active queue's route and tab-visibility safety guard.
 
 ## Key symbols
 - `QueueController` in `src/content/queue-controller.js` — sequential lifecycle: `idle`, `running`, `paused`, `stopped`, `completed`; emits active/upcoming queue snapshots and applies the configured two-second inter-item safety delay.
 - `QueueSafetyGuard` in `src/content/queue-safety-guard.js` — while a queue is `running`, records its route, detects browser/SPA URL changes via events and polling, detects a hidden document, and pauses with `page-change` or `tab-hidden`; disposal removes its listeners and timer.
 - `ConversationAdapter` in `src/content/conversation-adapter.js` — `list()` extracts unique `/c/` links; `deleteConversation()` waits up to four seconds for a selected link to reappear after a transient ChatGPT sidebar refresh, reveals its controls, scopes menu and dialog actions to visible surfaces, and concurrently observes sidebar removal or final-confirmation closure, so a stale sidebar node does not serially delay the next item.
+- `GeminiAdapter` in `src/content/gemini-adapter.js` — mirrors the common list/delete contract only for `/app/<id>` Gemini sidebar conversations; it scopes destructive controls to a selected row and fails closed on missing visible menu or confirmation controls.
+- `createProviderAdapter()` in `src/content/provider-adapter.js` — selects the ChatGPT or Gemini adapter by hostname and rejects unsupported pages before the unchanged UI can perform adapter operations.
 - `selectConversation()` in `src/content/content.js` — toggles selection and derives Shift ranges only from the current filtered cards. The Shadow-DOM shell disables native text selection except in the search input, so Shift-click does not highlight plugin copy. `render()` retains the conversation-grid scroll offset and focused input so selection does not jump to the top.
 - `handleOutsidePointerDown()` in `src/content/content.js` — capture-phase check that dismisses an open TidyQueue panel only when the pointer target is outside the Shadow-DOM host; it uses the same safe close path as the close control.
 - `handlePointerDown()`, `handlePointerMove()`, and `handlePointerUp()` in `src/content/content.js` — move the launcher only during the current page session and suppress an accidental post-drag open.
@@ -28,6 +30,6 @@
 
 ## Validation
 - Requirements brief validator — latest result: pass.
-- `npm test` — nineteen Node unit tests, including route/hidden-tab queue safety, locale completeness, and fallback substitutions; latest result: pass.
+- `npm test` — twenty-six Node unit tests, including Gemini provider routing and visible destructive-control guards, route/hidden-tab queue safety, locale completeness, and fallback substitutions; latest result: pass.
 - `npm run package:check` — latest result: pass.
 - Logged-in browser and visual validation remain pending.

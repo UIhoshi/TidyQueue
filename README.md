@@ -1,10 +1,10 @@
 # TidyQueue
 
-**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT conversations with confidence.
+**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT or Gemini conversations with confidence.
 
-TidyQueue turns a crowded ChatGPT sidebar into a clear, reviewable cleanup workflow. Browse conversations visually, select exactly what you mean to remove, inspect the deletion queue, and confirm before any deletion starts.
+TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cleanup workflow. Browse conversations visually, select exactly what you mean to remove, inspect the deletion queue, and confirm before any deletion starts.
 
-> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI or ChatGPT.
+> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI, ChatGPT, Google, or Gemini.
 
 ## Why install TidyQueue?
 
@@ -48,7 +48,7 @@ TidyQueue turns a crowded ChatGPT sidebar into a clear, reviewable cleanup workf
 
 ## Safety and privacy
 
-- TidyQueue runs only on `chatgpt.com` and `chat.openai.com`.
+- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, and `gemini.google.com/app`.
 - Conversation titles, selected items, and queue state stay only in the current tab's memory.
 - Deletion requires an explicit review-and-confirm step.
 - The DOM adapter pauses rather than continuing if ChatGPT controls are missing or changed.
@@ -61,7 +61,7 @@ Read the full [TidyQueue Privacy Policy](./PRIVACY_POLICY.md).
 2. Open `chrome://extensions`.
 3. Enable **Developer mode**.
 4. Choose **Load unpacked** and select this project folder.
-5. Open `https://chatgpt.com`, then click the TidyQueue extension icon or use the in-page launcher.
+5. Open `https://chatgpt.com` or `https://gemini.google.com/app`, then click the TidyQueue extension icon or use the in-page launcher.
 
 ## Development validation
 
@@ -70,4 +70,4 @@ npm test
 npm run package:check
 ```
 
-Before real use, test with a disposable conversation in a logged-in ChatGPT tab. ChatGPT's DOM can change, so the selector adapter requires browser validation after ChatGPT UI changes.
+Before real use, test with a disposable conversation in a logged-in supported chat tab. Provider DOMs can change, so each selector adapter requires browser validation after that provider's UI changes.

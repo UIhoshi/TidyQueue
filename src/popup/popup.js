@@ -9,7 +9,7 @@ document.querySelectorAll('[data-i18n]').forEach((element) => {
 
 openButton.addEventListener('click', async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  if (!tab?.id || !/^https:\/\/(chatgpt\.com|chat\.openai\.com)\//.test(tab.url || '')) {
+  if (!tab?.id || !/^https:\/\/(chatgpt\.com|chat\.openai\.com)\//.test(tab.url || '') && !/^https:\/\/gemini\.google\.com\/app(?:[/?#]|$)/.test(tab.url || '')) {
     status.textContent = message('popupUnsupported');
     return;
   }

@@ -2,7 +2,7 @@
   if (window.top !== window || window.__quickdelApp) return;
 
   const { t } = globalThis.quickdelI18n;
-  const adapter = new globalThis.ConversationAdapter();
+  const adapter = globalThis.createProviderAdapter();
   const state = { open: false, mode: 'visual', density: 3, theme: 'auto', query: '', age: 'all', items: [], selected: new Set(), selectionAnchorId: null, focusSearchOnOpen: false };
   const systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
   let fabDrag = null;
