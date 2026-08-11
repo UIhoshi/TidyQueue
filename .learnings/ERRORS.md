@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-12 — Shift range selection highlighted plugin text
+- Symptom: After selecting an anchor card, Shift-clicking another card selected the expected range but also triggered native browser text highlighting across TidyQueue copy.
+- Root cause: The isolated UI did not disable browser text selection for non-editable interface content.
+- Correction: Made the Shadow-DOM shell nonselectable while explicitly preserving text selection in the conversation search input.
+- Prevention: Pointer-driven selectable controls should suppress incidental native text selection without disabling editable fields.
+- Verification: Regression assertion, full Node test suite, and package validation pass; Chrome visual confirmation remains required.
+
 ## 2026-08-12 — Active queue did not pause on route or tab changes
 - Symptom: A deletion queue had page-change and tab-hidden UI messages but no listener or route comparison could trigger them.
 - Root cause: The earlier deletion-navigation workaround wrote an unused remembered URL and removed the runtime route guard, leaving neither URL nor visibility monitoring in the active queue lifecycle.
