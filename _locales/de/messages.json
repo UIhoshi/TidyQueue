@@ -187,5 +187,11 @@
   },
   "selectionHint": {
     "message": "Mit Strg / Umschalt auswählen"
+  },
+  "sidebarLoadHint": {
+    "message": "Scrollen Sie vor dem Öffnen von TidyQueue die Gesprächsseitenleiste bis nach unten, damit alle verfügbaren Chats geladen werden."
+  },
+  "sidebarLoadHintTitle": {
+    "message": "Laden Sie zuerst alle Gespräche"
   }
 }

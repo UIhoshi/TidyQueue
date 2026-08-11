@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-12 — Sidebar lazy-loading could hide conversations without warning
+- Symptom: ChatGPT and Gemini could show only a partial conversation list when their left sidebar had not been scrolled to the bottom before opening TidyQueue, with no prominent explanation in the extension.
+- Root cause: Both hosts lazily materialize sidebar rows, while the extension correctly reads only the current DOM and did not surface that limitation.
+- Correction: Added a persistent, high-contrast localized notice immediately above the results, instructing the user to scroll the host sidebar to its bottom before opening TidyQueue.
+- Prevention: When host-visible data may be lazily loaded, present the prerequisite where the user evaluates the result set, not as low-priority helper copy.
+- Verification: Notice regression coverage, 30 Node tests, and package validation pass; manual ChatGPT/Gemini visual retest remains required.
+
 ## 2026-08-12 — Long conversation text overflowed cards
 - Symptom: Long conversation titles or summaries could extend beyond visual cards; the same risk existed in compact list rows.
 - Root cause: Card text had no width containment or line-clamp/truncation rule.

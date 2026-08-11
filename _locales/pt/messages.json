@@ -187,5 +187,11 @@
   },
   "selectionHint": {
     "message": "Use Ctrl / Shift para selecionar"
+  },
+  "sidebarLoadHint": {
+    "message": "Antes de abrir o TidyQueue, role a barra lateral de conversas até o fim para carregar todas as conversas disponíveis."
+  },
+  "sidebarLoadHintTitle": {
+    "message": "Carregue todas as conversas primeiro"
   }
 }

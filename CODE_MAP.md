@@ -3,7 +3,7 @@
 ## Entrypoints
 - `manifest.json` — MV3 registration, TidyQueue action popup/icon, content-script order, and supported ChatGPT/Gemini host scope.
 - `src/popup/popup.js` — localizes popup copy through Chrome i18n, validates a supported active tab, then sends `quickdel:open`.
-- `src/content/content.js` — creates the unchanged browser-locale-aware Shadow-DOM UI and draggable persistent launcher, owns ephemeral selection/density/theme state, selects the provider adapter, responds to the popup, and starts/stops the active queue's route and tab-visibility safety guard. Its visual cards clamp long titles and summaries to two lines; list rows use a one-line title ellipsis to remain contained.
+- `src/content/content.js` — creates the unchanged browser-locale-aware Shadow-DOM UI and draggable persistent launcher, owns ephemeral selection/density/theme state, selects the provider adapter, responds to the popup, and starts/stops the active queue's route and tab-visibility safety guard. It keeps a prominent localized warning directly above the results, explaining that ChatGPT and Gemini sidebars must be scrolled to the bottom before opening the extension so lazy-loaded conversations are discoverable. Its visual cards clamp long titles and summaries to two lines; list rows use a one-line title ellipsis to remain contained.
 
 ## Key symbols
 - `QueueController` in `src/content/queue-controller.js` — sequential lifecycle: `idle`, `running`, `paused`, `stopped`, `completed`; emits active/upcoming queue snapshots and applies the configured two-second inter-item safety delay.
@@ -30,6 +30,6 @@
 
 ## Validation
 - Requirements brief validator — latest result: pass.
-- `npm test` — twenty-nine Node unit tests, including Gemini provider routing, action-container retry selection, visible destructive-control guards, queue error-callout and card-text containment, route/hidden-tab queue safety, locale completeness, and fallback substitutions; latest result: pass.
+- `npm test` — twenty-nine Node unit tests, including Gemini provider routing, action-container retry selection, visible destructive-control guards, queue error-callout, card-text containment, and sidebar-load notice coverage, route/hidden-tab queue safety, locale completeness, and fallback substitutions; latest result: pass.
 - `npm run package:check` — latest result: pass.
 - Logged-in browser and visual validation remain pending.

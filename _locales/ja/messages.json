@@ -187,5 +187,11 @@
   },
   "selectionHint": {
     "message": "Ctrl / Shift で選択"
+  },
+  "sidebarLoadHint": {
+    "message": "TidyQueue を開く前に、左側の会話一覧を一番下までスクロールして、利用可能な会話をすべて読み込んでください。"
+  },
+  "sidebarLoadHintTitle": {
+    "message": "先にすべての会話を読み込んでください"
   }
 }

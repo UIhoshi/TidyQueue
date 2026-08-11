@@ -13,7 +13,7 @@
     queueComplete: 'Queue complete.', pageChanged: 'Page changed; queue paused for safety.', tabHidden: 'Tab left; queue paused for safety.',
     adapterError: 'ChatGPT controls could not be confirmed. No further conversations were deleted.', theme: 'Theme', themeAuto: 'Auto', themeDark: 'Dark', themeLight: 'Light', themeViolet: 'Violet night', pacing: 'Safety pacing before the next conversation', localeFallback: 'en',
     openControlCenter: 'Open TidyQueue', localOnly: 'LOCAL ONLY', viewMode: 'View mode', listDensity: 'List density', ageFilter: 'Conversation age filter', selectConversation: 'Select $1', progressLabel: '$1 of $2 conversations completed',
-    popupHeading: 'Review conversations first.', popupStatus: 'Open a ChatGPT tab, then launch the local control center.', popupOpen: 'Open control center', popupUnsupported: 'Open ChatGPT in this tab first.', popupReload: 'Reload this ChatGPT tab, then try again.', selectionHint: 'Ctrl / Shift to select'
+    popupHeading: 'Review conversations first.', popupStatus: 'Open a ChatGPT tab, then launch the local control center.', popupOpen: 'Open control center', popupUnsupported: 'Open ChatGPT in this tab first.', popupReload: 'Reload this ChatGPT tab, then try again.', selectionHint: 'Ctrl / Shift to select', sidebarLoadHintTitle: 'Load all conversations first', sidebarLoadHint: 'Before opening TidyQueue, scroll the conversation sidebar to the bottom to load all available chats.'
   };
 
   function message(key, substitutions) {

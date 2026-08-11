@@ -187,5 +187,11 @@
   },
   "selectionHint": {
     "message": "使用 Ctrl / Shift 选择"
+  },
+  "sidebarLoadHint": {
+    "message": "打开 TidyQueue 前，请将网页左侧对话栏滚动到底部，以加载全部可用对话。"
+  },
+  "sidebarLoadHintTitle": {
+    "message": "请先加载全部对话"
   }
 }
