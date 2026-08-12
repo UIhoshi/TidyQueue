@@ -55,6 +55,10 @@ TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cle
 
 Read the full [TidyQueue Privacy Policy](./PRIVACY_POLICY.md).
 
+## Install from the Chrome Web Store
+
+Install [**TidyQueue** from the Chrome Web Store](https://chromewebstore.google.com/detail/tidyqueue/ncfabbbldbppncciiaaalpbhjknofnnf?hl=zh-CN).
+
 ## Install locally in Chrome
 
 1. Download or clone this repository.
