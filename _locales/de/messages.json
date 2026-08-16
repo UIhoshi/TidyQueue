@@ -33,7 +33,7 @@
     "message": "Schließen"
   },
   "noConversations": {
-    "message": "Keine Unterhaltungen in der Seitenleiste gefunden. Aktualisieren Sie ChatGPT und versuchen Sie es erneut."
+    "message": "Keine Unterhaltungen in der Seitenleiste gefunden. Aktualisiere die unterstützte Chatseite und versuche es erneut."
   },
   "reviewTitle": {
     "message": "Ausstehende Löschung prüfen"
@@ -93,7 +93,7 @@
     "message": "Letzte 90 Tage"
   },
   "unsupported": {
-    "message": "TidyQueue funktioniert nur in ChatGPT."
+    "message": "TidyQueue funktioniert nur auf ChatGPT, Gemini oder Claude."
   },
   "retry": {
     "message": "Erneut versuchen"
@@ -120,7 +120,7 @@
     "message": "Tab verlassen; Warteschlange wurde zur Sicherheit angehalten."
   },
   "adapterError": {
-    "message": "ChatGPT-Steuerelemente konnten nicht bestätigt werden. Es wurden keine weiteren Unterhaltungen gelöscht."
+    "message": "Die Steuerelemente des Anbieters konnten nicht bestätigt werden. Es wurden keine weiteren Unterhaltungen gelöscht."
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "Unterhaltungen zuerst prüfen."
   },
   "popupStatus": {
-    "message": "Öffnen Sie einen ChatGPT-Tab und starten Sie dann das lokale Kontrollzentrum."
+    "message": "Öffne einen ChatGPT-, Gemini- oder Claude-Tab und starte dann das lokale Kontrollzentrum."
   },
   "popupOpen": {
     "message": "Kontrollzentrum öffnen"
   },
   "popupUnsupported": {
-    "message": "Öffnen Sie ChatGPT zuerst in diesem Tab."
+    "message": "Öffne zuerst ChatGPT, Gemini oder Claude in diesem Tab."
   },
   "popupReload": {
-    "message": "Laden Sie diesen ChatGPT-Tab neu und versuchen Sie es erneut."
+    "message": "Lade diesen unterstützten Chat-Tab neu und versuche es erneut."
   },
   "selectionHint": {
     "message": "Mit Strg / Umschalt auswählen"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "Laden Sie zuerst alle Gespräche"
+  },
+  "deleteMore": {
+    "message": "Weiter löschen"
   }
 }

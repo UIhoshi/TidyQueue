@@ -1,10 +1,10 @@
 # TidyQueue
 
-**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT or Gemini conversations with confidence.
+**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT, Gemini, or Claude conversations with confidence.
 
 TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cleanup workflow. Browse conversations visually, select exactly what you mean to remove, inspect the deletion queue, and confirm before any deletion starts.
 
-> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI, ChatGPT, Google, or Gemini.
+> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI, ChatGPT, Google, Gemini, Anthropic, or Claude.
 
 ## Why install TidyQueue?
 
@@ -18,7 +18,7 @@ TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cle
 <table>
   <tr>
     <td width="50%" valign="top">
-      <strong>Open from any ChatGPT tab</strong><br>
+      <strong>Open from a supported chat tab</strong><br>
       TidyQueue stays available as a compact local launcher in the lower-right corner.
       <br><br>
       <img src="docs/images/tidyqueue-launcher.png" alt="ChatGPT page with the TidyQueue launcher highlighted in the lower-right corner" width="100%">
@@ -48,10 +48,10 @@ TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cle
 
 ## Safety and privacy
 
-- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, and `gemini.google.com/app`.
+- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, and `claude.ai`.
 - Conversation titles, selected items, and queue state stay only in the current tab's memory.
 - Deletion requires an explicit review-and-confirm step.
-- The DOM adapter pauses rather than continuing if ChatGPT controls are missing or changed.
+- The DOM adapter pauses rather than continuing if provider controls are missing or changed.
 
 Read the full [TidyQueue Privacy Policy](./PRIVACY_POLICY.md).
 
@@ -65,7 +65,7 @@ Install [**TidyQueue** from the Chrome Web Store](https://chromewebstore.google.
 2. Open `chrome://extensions`.
 3. Enable **Developer mode**.
 4. Choose **Load unpacked** and select this project folder.
-5. Open `https://chatgpt.com` or `https://gemini.google.com/app`, then click the TidyQueue extension icon or use the in-page launcher.
+5. Open `https://chatgpt.com`, `https://gemini.google.com/app`, or `https://claude.ai`, then click the TidyQueue extension icon or use the in-page launcher.
 
 ## Development validation
 

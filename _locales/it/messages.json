@@ -33,7 +33,7 @@
     "message": "Chiudi"
   },
   "noConversations": {
-    "message": "Nessuna conversazione trovata nella barra laterale. Aggiorna ChatGPT e riprova."
+    "message": "Nessuna conversazione trovata nella barra laterale. Aggiorna la pagina di chat supportata e riprova."
   },
   "reviewTitle": {
     "message": "Rivedi eliminazioni in attesa"
@@ -93,7 +93,7 @@
     "message": "Ultimi 90 giorni"
   },
   "unsupported": {
-    "message": "TidyQueue funziona solo su ChatGPT."
+    "message": "TidyQueue funziona solo su ChatGPT, Gemini o Claude."
   },
   "retry": {
     "message": "Riprova"
@@ -120,7 +120,7 @@
     "message": "Scheda lasciata; coda sospesa per sicurezza."
   },
   "adapterError": {
-    "message": "Non è stato possibile confermare i controlli di ChatGPT. Non sono state eliminate altre conversazioni."
+    "message": "Non è stato possibile confermare i controlli del provider. Non sono state eliminate altre conversazioni."
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "Controlla prima le conversazioni."
   },
   "popupStatus": {
-    "message": "Apri una scheda ChatGPT, poi avvia il centro di controllo locale."
+    "message": "Apri una scheda ChatGPT, Gemini o Claude, quindi avvia il centro di controllo locale."
   },
   "popupOpen": {
     "message": "Apri il centro di controllo"
   },
   "popupUnsupported": {
-    "message": "Apri prima ChatGPT in questa scheda."
+    "message": "Apri prima ChatGPT, Gemini o Claude in questa scheda."
   },
   "popupReload": {
-    "message": "Ricarica questa scheda ChatGPT e riprova."
+    "message": "Ricarica questa scheda di chat supportata, quindi riprova."
   },
   "selectionHint": {
     "message": "Usa Ctrl / Maiusc per selezionare"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "Carica prima tutte le conversazioni"
+  },
+  "deleteMore": {
+    "message": "Elimina altri"
   }
 }

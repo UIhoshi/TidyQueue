@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-16 — A completed cleanup could not reliably begin a fresh batch in the same panel
+- Symptom: After a completed deletion batch, a later newly selected batch could not reliably begin unless the user refreshed the page or closed/reopened TidyQueue.
+- Root cause: The completed queue kept its old in-memory sidebar snapshot and selection lifecycle on the persistent queue panel, with no explicit in-panel transition that refreshed the adapter data for a new batch.
+- Correction: Added a completed-only localized **Delete more** action. It invalidates stale queued renders, stops the completed guard, refreshes the current provider snapshot, clears the old selection/anchor, and returns to the still-open selection surface. The normal review-and-confirmation gate remains mandatory.
+- Prevention: Any reusable destructive queue must explicitly reset its completed batch state and reacquire current adapter data before exposing a new batch.
+- Verification: Regression coverage proves repeated completed batches of different sizes hand off without retaining old IDs; `npm test` (35 tests) and `npm run package:check` pass. Logged-in Chrome verification remains required.
+
 ## 2026-08-12 — Sidebar lazy-loading could hide conversations without warning
 - Symptom: ChatGPT and Gemini could show only a partial conversation list when their left sidebar had not been scrolled to the bottom before opening TidyQueue, with no prominent explanation in the extension.
 - Root cause: Both hosts lazily materialize sidebar rows, while the extension correctly reads only the current DOM and did not surface that limitation.

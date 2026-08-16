@@ -33,7 +33,7 @@
     "message": "閉じる"
   },
   "noConversations": {
-    "message": "サイドバーに会話が見つかりません。ChatGPT を更新してもう一度お試しください。"
+    "message": "サイドバーに会話が見つかりません。対応するチャットページを再読み込みして、もう一度お試しください。"
   },
   "reviewTitle": {
     "message": "削除予定を確認"
@@ -93,7 +93,7 @@
     "message": "過去 90 日間"
   },
   "unsupported": {
-    "message": "TidyQueue は ChatGPT でのみ動作します。"
+    "message": "TidyQueue は ChatGPT、Gemini、または Claude でのみ動作します。"
   },
   "retry": {
     "message": "再試行"
@@ -120,7 +120,7 @@
     "message": "タブを離れたため、安全のためキューを停止しました。"
   },
   "adapterError": {
-    "message": "ChatGPT の操作部を確認できませんでした。これ以上の会話は削除されません。"
+    "message": "プロバイダーの操作ボタンを確認できませんでした。これ以上の会話は削除されませんでした。"
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "先に会話を確認してください。"
   },
   "popupStatus": {
-    "message": "ChatGPT のタブを開いてから、ローカル操作センターを起動してください。"
+    "message": "ChatGPT、Gemini、または Claude のタブを開き、ローカルコントロールセンターを起動してください。"
   },
   "popupOpen": {
     "message": "操作センターを開く"
   },
   "popupUnsupported": {
-    "message": "このタブで ChatGPT を先に開いてください。"
+    "message": "このタブで ChatGPT、Gemini、または Claude を先に開いてください。"
   },
   "popupReload": {
-    "message": "この ChatGPT タブを再読み込みして、もう一度お試しください。"
+    "message": "この対応チャットタブを再読み込みして、もう一度お試しください。"
   },
   "selectionHint": {
     "message": "Ctrl / Shift で選択"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "先にすべての会話を読み込んでください"
+  },
+  "deleteMore": {
+    "message": "さらに削除"
   }
 }

@@ -33,7 +33,7 @@
     "message": "关闭"
   },
   "noConversations": {
-    "message": "未找到侧边栏对话。请刷新 ChatGPT 后重试。"
+    "message": "未找到侧边栏会话。请刷新支持的聊天页面后重试。"
   },
   "reviewTitle": {
     "message": "检查待删除的对话"
@@ -93,7 +93,7 @@
     "message": "最近 90 天"
   },
   "unsupported": {
-    "message": "TidyQueue 仅可在 ChatGPT 中运行。"
+    "message": "TidyQueue 仅可在 ChatGPT、Gemini 或 Claude 上运行。"
   },
   "retry": {
     "message": "重试"
@@ -120,7 +120,7 @@
     "message": "已离开标签页；队列为安全起见已暂停。"
   },
   "adapterError": {
-    "message": "无法确认 ChatGPT 控件；不会继续删除。"
+    "message": "无法确认服务提供方的控件。未再删除其他会话。"
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "请先检查对话。"
   },
   "popupStatus": {
-    "message": "在当前标签页打开 ChatGPT，然后启动本地控制中心。"
+    "message": "打开 ChatGPT、Gemini 或 Claude 标签页，然后启动本地控制中心。"
   },
   "popupOpen": {
     "message": "打开控制中心"
   },
   "popupUnsupported": {
-    "message": "请先在当前标签页打开 ChatGPT。"
+    "message": "请先在此标签页中打开 ChatGPT、Gemini 或 Claude。"
   },
   "popupReload": {
-    "message": "请重新加载此 ChatGPT 标签页后重试。"
+    "message": "请重新加载此支持的聊天标签页后重试。"
   },
   "selectionHint": {
     "message": "使用 Ctrl / Shift 选择"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "请先加载全部对话"
+  },
+  "deleteMore": {
+    "message": "继续删除"
   }
 }

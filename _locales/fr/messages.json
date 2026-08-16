@@ -33,7 +33,7 @@
     "message": "Fermer"
   },
   "noConversations": {
-    "message": "Aucune conversation trouvée dans la barre latérale. Actualisez ChatGPT et réessayez."
+    "message": "Aucune conversation de barre latérale trouvée. Actualisez la page de discussion prise en charge et réessayez."
   },
   "reviewTitle": {
     "message": "Vérifier les suppressions"
@@ -93,7 +93,7 @@
     "message": "90 derniers jours"
   },
   "unsupported": {
-    "message": "TidyQueue fonctionne uniquement sur ChatGPT."
+    "message": "TidyQueue fonctionne uniquement sur ChatGPT, Gemini ou Claude."
   },
   "retry": {
     "message": "Réessayer"
@@ -120,7 +120,7 @@
     "message": "Onglet quitté ; la file est en pause par sécurité."
   },
   "adapterError": {
-    "message": "Les commandes ChatGPT n’ont pas pu être confirmées. Aucune autre conversation n’a été supprimée."
+    "message": "Les contrôles du fournisseur n’ont pas pu être confirmés. Aucune autre conversation n’a été supprimée."
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "Vérifiez d’abord les conversations."
   },
   "popupStatus": {
-    "message": "Ouvrez un onglet ChatGPT, puis lancez le centre de contrôle local."
+    "message": "Ouvrez un onglet ChatGPT, Gemini ou Claude, puis lancez le centre de contrôle local."
   },
   "popupOpen": {
     "message": "Ouvrir le centre de contrôle"
   },
   "popupUnsupported": {
-    "message": "Ouvrez d’abord ChatGPT dans cet onglet."
+    "message": "Ouvrez d’abord ChatGPT, Gemini ou Claude dans cet onglet."
   },
   "popupReload": {
-    "message": "Rechargez cet onglet ChatGPT, puis réessayez."
+    "message": "Rechargez cet onglet de discussion pris en charge, puis réessayez."
   },
   "selectionHint": {
     "message": "Utilisez Ctrl / Maj pour sélectionner"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "Chargez d’abord toutes les conversations"
+  },
+  "deleteMore": {
+    "message": "Supprimer davantage"
   }
 }

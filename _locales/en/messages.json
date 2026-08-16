@@ -33,7 +33,7 @@
     "message": "Close"
   },
   "noConversations": {
-    "message": "No sidebar conversations found. Refresh ChatGPT and try again."
+    "message": "No sidebar conversations found. Refresh the supported chat page and try again."
   },
   "reviewTitle": {
     "message": "Review pending deletion"
@@ -93,7 +93,7 @@
     "message": "Last 90 days"
   },
   "unsupported": {
-    "message": "TidyQueue only runs on ChatGPT."
+    "message": "TidyQueue only runs on ChatGPT, Gemini, or Claude."
   },
   "retry": {
     "message": "Try again"
@@ -120,7 +120,7 @@
     "message": "Tab left; queue paused for safety."
   },
   "adapterError": {
-    "message": "ChatGPT controls could not be confirmed. No further conversations were deleted."
+    "message": "The provider's controls could not be confirmed. No further conversations were deleted."
   },
   "localeFallback": {
     "message": "en"
@@ -174,16 +174,16 @@
     "message": "Review conversations first."
   },
   "popupStatus": {
-    "message": "Open a ChatGPT tab, then launch the local control center."
+    "message": "Open a ChatGPT, Gemini, or Claude tab, then launch the local control center."
   },
   "popupOpen": {
     "message": "Open control center"
   },
   "popupUnsupported": {
-    "message": "Open ChatGPT in this tab first."
+    "message": "Open ChatGPT, Gemini, or Claude in this tab first."
   },
   "popupReload": {
-    "message": "Reload this ChatGPT tab, then try again."
+    "message": "Reload this supported chat tab, then try again."
   },
   "selectionHint": {
     "message": "Ctrl / Shift to select"
@@ -193,5 +193,8 @@
   },
   "sidebarLoadHintTitle": {
     "message": "Load all conversations first"
+  },
+  "deleteMore": {
+    "message": "Delete more"
   }
 }

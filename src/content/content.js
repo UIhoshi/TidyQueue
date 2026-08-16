@@ -13,6 +13,7 @@
   let queueSafetyGuard;
   let pendingQueueSnapshot;
   let queueRenderFrame = 0;
+  let queueEpoch = 0;
 
   function createShell() {
     if (rootHost) return;
@@ -32,9 +33,7 @@
 
   function open() {
     createShell();
-    state.items = adapter.list();
-    state.selected = new Set();
-    state.selectionAnchorId = null;
+    globalThis.quickdelSession.refreshBatchState(state, adapter.list());
     state.open = true;
     state.focusSearchOnOpen = true;
     applyTheme();
@@ -45,6 +44,9 @@
     state.open = false;
     queue?.stop();
     queueSafetyGuard?.stop();
+    queueEpoch += 1;
+    pendingQueueSnapshot = null;
+    if (queueRenderFrame) { window.cancelAnimationFrame(queueRenderFrame); queueRenderFrame = 0; }
     render();
   }
 
@@ -127,7 +129,7 @@
         <div class="qd-progress-copy"><p class="qd-progress-count" data-queue="count"></p><div class="qd-progress-bar" aria-hidden="true"><i data-queue="bar" style="width:0%"></i></div><p class="qd-progress-percent" data-queue="percent">0%</p></div>
       </div>
       <p class="qd-notice qd-notice-empty" data-queue="notice" aria-hidden="true"> </p><h3 data-queue="up-next"></h3><ol data-queue="list">${queueSlotMarkup()}</ol>
-      <div class="qd-modal-actions"><button class="qd-secondary" data-queue="pause" data-action="pause"></button><button class="qd-primary" data-queue="resume" data-action="resume"></button><button class="qd-danger" data-queue="stop" data-action="stop"></button><button class="qd-primary" data-queue="finish" data-action="finish"></button><button class="qd-secondary" data-queue="cancel" data-action="dismiss-modal" hidden></button><button class="qd-danger" data-queue="confirm" data-action="confirm" hidden></button></div>
+      <div class="qd-modal-actions"><button class="qd-secondary" data-queue="pause" data-action="pause"></button><button class="qd-primary" data-queue="resume" data-action="resume"></button><button class="qd-danger" data-queue="stop" data-action="stop"></button><button class="qd-secondary" data-queue="next-batch" data-action="next-batch" hidden></button><button class="qd-primary" data-queue="finish" data-action="finish"></button><button class="qd-secondary" data-queue="cancel" data-action="dismiss-modal" hidden></button><button class="qd-danger" data-queue="confirm" data-action="confirm" hidden></button></div>
     </section></div>`;
     return modal.querySelector('.qd-progress');
   }
@@ -140,7 +142,7 @@
     queueField(panel, 'review-close').hidden = !isReview;
     queueField(panel, 'cancel').hidden = !isReview;
     queueField(panel, 'confirm').hidden = !isReview;
-    ['pause', 'resume', 'stop', 'finish'].forEach((name) => { queueField(panel, name).hidden = isReview; });
+    ['pause', 'resume', 'stop', 'next-batch', 'finish'].forEach((name) => { queueField(panel, name).hidden = isReview; });
   }
 
   function ensureLiveQueueSlots(panel) {
@@ -210,15 +212,15 @@
     }, 130);
   }
 
-  function queueStateChanged(snapshot) {
-    if (!state.open) return;
-    pendingQueueSnapshot = snapshot;
+  function queueStateChanged(snapshot, epoch = queueEpoch) {
+    if (!state.open || epoch !== queueEpoch) return;
+    pendingQueueSnapshot = { snapshot, epoch };
     if (queueRenderFrame) return;
     queueRenderFrame = window.requestAnimationFrame(() => {
       queueRenderFrame = 0;
-      const latestSnapshot = pendingQueueSnapshot;
+      const pending = pendingQueueSnapshot;
       pendingQueueSnapshot = null;
-      if (latestSnapshot && state.open) showQueue(latestSnapshot);
+      if (pending?.epoch === queueEpoch && state.open) showQueue(pending.snapshot);
     });
   }
 
@@ -272,7 +274,9 @@
     find('pause').hidden = !running;
     find('resume').hidden = !paused;
     find('stop').hidden = !(running || paused);
+    find('next-batch').hidden = snapshot.status !== 'completed';
     find('finish').hidden = running || paused;
+    find('next-batch').textContent = t('deleteMore');
     find('pause').textContent = t('pause');
     find('resume').textContent = t('resume');
     find('stop').textContent = t('stop');
@@ -280,14 +284,17 @@
   }
 
   function startQueue() {
+    if (queue?.snapshot?.().status === 'running') return;
     const items = state.items.filter((item) => state.selected.has(item.id));
+    const epoch = ++queueEpoch;
     queueSafetyGuard?.stop();
     queue = new globalThis.QueueController(async (item) => {
       const result = await adapter.deleteConversation(item);
       return result;
     }, {
       onChange: (snapshot) => {
-        queueStateChanged(snapshot);
+        queueStateChanged(snapshot, epoch);
+        if (epoch !== queueEpoch) return;
         if (snapshot.status === 'running') queueSafetyGuard?.start();
         else queueSafetyGuard?.stop();
       },
@@ -297,6 +304,17 @@
     });
     queueSafetyGuard = new globalThis.QueueSafetyGuard(queue);
     queue.start(items);
+  }
+
+  function beginNextBatch() {
+    queueEpoch += 1;
+    queueSafetyGuard?.stop();
+    queue = null;
+    pendingQueueSnapshot = null;
+    if (queueRenderFrame) { window.cancelAnimationFrame(queueRenderFrame); queueRenderFrame = 0; }
+    globalThis.quickdelSession.refreshBatchState(state, adapter.list());
+    shadow.getElementById('qd-modal').innerHTML = '';
+    render();
   }
 
   function selectConversation(id, event = {}) {
@@ -334,6 +352,7 @@
       if (action === 'dismiss-modal') { shadow.getElementById('qd-modal').innerHTML = ''; render(); }
       if (action === 'remove') { const reviewScrollTop = shadow.querySelector('.qd-review-list')?.scrollTop || 0; state.selected.delete(button.dataset.id); showReview(reviewScrollTop); }
       if (action === 'confirm') startQueue();
+      if (action === 'next-batch') beginNextBatch();
       if (action === 'pause') queue?.pause('manual');
       if (action === 'resume') queue?.resume();
       if (action === 'stop') queue?.stop();
