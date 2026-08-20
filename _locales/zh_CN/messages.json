@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue：AI网页聊天批量删除"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "本地检查并批量删除你自己的 AI 网页聊天记录"
   },
   "title": {
     "message": "清理队列"

@@ -1,5 +1,12 @@
 # Project Error Log
 
+## 2026-08-21 — Claude's native final deletion confirmation rejected extension-generated input
+- Symptom: TidyQueue could locate Claude's visible menu and native final Delete control but could not complete the final confirmation with content-script-generated events.
+- Root cause: Claude requires trusted user input for its final destructive confirmation; ordinary content-script pointer, click, and keyboard events are not trusted user input.
+- Correction: The user chose to remove Claude support rather than grant the broad Chrome `debugger` permission. Claude's host match, adapter, popup recognition, tests, and support claims were removed; the other five providers remain unchanged.
+- Prevention: Do not add a high-sensitivity browser permission merely to bypass a provider's native destructive-confirmation boundary. Verify whether an automation path can generate trusted input before advertising batch support.
+- Verification: Provider-routing regression rejects `claude.ai`, manifest/package checks require no Claude adapter or host match and no `debugger` permission; full test and package validation are required.
+
 ## 2026-08-16 — A completed cleanup could not reliably begin a fresh batch in the same panel
 - Symptom: After a completed deletion batch, a later newly selected batch could not reliably begin unless the user refreshed the page or closed/reopened TidyQueue.
 - Root cause: The completed queue kept its old in-memory sidebar snapshot and selection lifecycle on the persistent queue panel, with no explicit in-panel transition that refreshed the adapter data for a new batch.

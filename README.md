@@ -1,10 +1,10 @@
 # TidyQueue
 
-**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT, Gemini, Claude, Copilot, Perplexity, or Kimi conversations with confidence.
+**Web AI Chat Cleanup** — a local-only Chrome extension for reviewing and deleting your own ChatGPT, Gemini, Copilot, Perplexity, or Kimi conversations with confidence.
 
 TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cleanup workflow. Browse conversations visually, select exactly what you mean to remove, inspect the deletion queue, and confirm before any deletion starts.
 
-> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI, ChatGPT, Google, Gemini, Anthropic, or Claude.
+> TidyQueue is independent software and is not affiliated with or endorsed by OpenAI, ChatGPT, Google, Gemini, Microsoft, Copilot, Perplexity, or Kimi.
 
 ## Why install TidyQueue?
 
@@ -48,7 +48,7 @@ TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cle
 
 ## Safety and privacy
 
-- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `claude.ai`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, and `kimi.com`.
+- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, and `kimi.com`.
 - Conversation titles, selected items, and queue state stay only in the current tab's memory.
 - Deletion requires an explicit review-and-confirm step.
 - The DOM adapter pauses rather than continuing if provider controls are missing or changed.
@@ -65,7 +65,7 @@ Install [**TidyQueue** from the Chrome Web Store](https://chromewebstore.google.
 2. Open `chrome://extensions`.
 3. Enable **Developer mode**.
 4. Choose **Load unpacked** and select this project folder.
-5. Open a supported ChatGPT, Gemini, Claude, Copilot, Perplexity, or Kimi chat tab, then click the TidyQueue extension icon or use the in-page launcher.
+5. Open a supported ChatGPT, Gemini, Copilot, Perplexity, or Kimi chat tab, then click the TidyQueue extension icon or use the in-page launcher.
 
 ## Development validation
 

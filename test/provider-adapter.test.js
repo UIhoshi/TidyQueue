@@ -4,14 +4,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ConversationAdapter } = require('../src/content/conversation-adapter.js');
 const { GeminiAdapter } = require('../src/content/gemini-adapter.js');
-const { ClaudeAdapter } = require('../src/content/claude-adapter.js');
 const { CopilotAdapter } = require('../src/content/copilot-adapter.js');
 const { PerplexityAdapter } = require('../src/content/perplexity-adapter.js');
 const { KimiAdapter } = require('../src/content/kimi-adapter.js');
 
 globalThis.ConversationAdapter = ConversationAdapter;
 globalThis.GeminiAdapter = GeminiAdapter;
-globalThis.ClaudeAdapter = ClaudeAdapter;
 globalThis.CopilotAdapter = CopilotAdapter;
 globalThis.PerplexityAdapter = PerplexityAdapter;
 globalThis.KimiAdapter = KimiAdapter;
@@ -21,7 +19,6 @@ test('provider router keeps every supported provider adapter separate by hostnam
   const documentRef = { location: { origin: 'https://example.invalid' } };
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'chatgpt.com' } }) instanceof ConversationAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'gemini.google.com' } }) instanceof GeminiAdapter);
-  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'claude.ai' } }) instanceof ClaudeAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'copilot.com' } }) instanceof CopilotAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'copilot.microsoft.com' } }) instanceof CopilotAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'perplexity.ai' } }) instanceof PerplexityAdapter);
@@ -32,19 +29,23 @@ test('provider router keeps every supported provider adapter separate by hostnam
 
 test('provider router refuses unsupported hosts', () => {
   assert.throws(() => createProviderAdapter({}, { location: { hostname: 'example.com' } }), /Unsupported TidyQueue host/);
+  assert.throws(() => createProviderAdapter({}, { location: { hostname: 'claude.ai' } }), /Unsupported TidyQueue host/);
 });
 
-test('provider adapters are registered without expanding the extension permission model', () => {
+test('provider adapters retain only the five supported provider families and no debugger permission', () => {
   const root = path.resolve(__dirname, '..');
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
   const contentScript = manifest.content_scripts[0];
   const popup = fs.readFileSync(path.join(root, 'src', 'popup', 'popup.js'), 'utf8');
 
   assert.deepEqual(manifest.permissions, ['activeTab']);
-  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://claude.ai/*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.com/*', 'https://www.kimi.com/*']) assert.ok(contentScript.matches.includes(host));
-  assert.deepEqual(contentScript.js.slice(-8), ['src/content/gemini-adapter.js', 'src/content/claude-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'src/content/cleanup-session.js', 'src/content/content.js']);
+  assert.equal(manifest.permissions.includes('debugger'), false);
+  assert.equal(contentScript.matches.includes('https://claude.ai/*'), false);
+  assert.equal(contentScript.js.includes('src/content/claude-adapter.js'), false);
+  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.com/*', 'https://www.kimi.com/*']) assert.ok(contentScript.matches.includes(host));
+  assert.deepEqual(contentScript.js.slice(-7), ['src/content/gemini-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'src/content/cleanup-session.js', 'src/content/content.js']);
   assert.ok(popup.includes('gemini\\.google\\.com'));
-  assert.ok(popup.includes('claude\\.ai'));
+  assert.equal(popup.includes('claude\\.ai'), false);
   assert.ok(popup.includes('copilot\\.com'));
   assert.ok(popup.includes('perplexity\\.ai'));
   assert.ok(popup.includes('kimi\\.com'));

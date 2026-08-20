@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue: Eliminatore in blocco di chat IA"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "Esamina ed elimina in blocco i tuoi chat IA in locale"
   },
   "title": {
     "message": "Coda di pulizia"

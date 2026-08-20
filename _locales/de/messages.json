@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue: KI-Chat-Massenlöscher"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "Eigene KI-Chats lokal prüfen und gesammelt löschen"
   },
   "title": {
     "message": "Bereinigungswarteschlange"

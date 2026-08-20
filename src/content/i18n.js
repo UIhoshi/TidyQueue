@@ -1,6 +1,6 @@
 (function (global) {
   const fallback = {
-    extensionName: 'TidyQueue', extensionDescription: 'Web AI Chat Cleanup',
+    extensionName: 'TidyQueue: AI Chat Bulk Deleter', extensionDescription: 'Review and bulk-delete your own AI chats locally',
     title: 'Clean Queue', visual: 'Visual', list: 'List', search: 'Search conversations', selected: 'selected',
     selectAll: 'Select visible', clear: 'Clear selection', review: 'Review deletion', close: 'Close',
     noConversations: 'No sidebar conversations found. Refresh the supported chat page and try again.', reviewTitle: 'Review pending deletion',

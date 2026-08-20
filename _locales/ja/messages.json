@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue：AIチャット一括削除"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "自分のAIチャットをローカルで確認して一括削除"
   },
   "title": {
     "message": "クリーンキュー"

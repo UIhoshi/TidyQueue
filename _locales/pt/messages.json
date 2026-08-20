@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue: Exclusão em massa de chats de IA"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "Revise e exclua em massa seus próprios chats de IA localmente"
   },
   "title": {
     "message": "Fila de limpeza"

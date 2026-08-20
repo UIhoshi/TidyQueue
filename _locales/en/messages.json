@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "TidyQueue"
+    "message": "TidyQueue: AI Chat Bulk Deleter"
   },
   "extensionDescription": {
-    "message": "Web AI Chat Cleanup"
+    "message": "Review and bulk-delete your own AI chats locally"
   },
   "title": {
     "message": "Clean Queue"

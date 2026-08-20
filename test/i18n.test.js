@@ -11,12 +11,15 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'u
 
 test('all nine browser locales provide every UI message and dynamic placeholder', () => {
   assert.equal(manifest.default_locale, 'en', 'English must remain the Chrome i18n default');
+  assert.equal(manifest.name, '__MSG_extensionName__');
+  assert.equal(manifest.action.default_title, '__MSG_extensionName__');
   const locales = fs.readdirSync(localesDir).filter((entry) => fs.statSync(path.join(localesDir, entry)).isDirectory()).sort();
   assert.deepEqual(locales, ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'zh_CN']);
   for (const locale of locales) {
     const catalog = JSON.parse(fs.readFileSync(path.join(localesDir, locale, 'messages.json'), 'utf8'));
     assert.deepEqual(Object.keys(catalog).sort(), Object.keys(english).sort(), `${locale} must match the English message catalog`);
     for (const key of Object.keys(english)) assert.ok(catalog[key].message, `${locale} lacks ${key}`);
+    assert.match(catalog.extensionName.message, /^TidyQueue[:：]/, `${locale} must use the descriptive TidyQueue title format`);
     for (const key of ['milestone', 'selectConversation', 'progressLabel']) assert.match(catalog[key].message, /\$1/, `${locale} ${key} must keep $1`);
     assert.match(catalog.progressLabel.message, /\$2/, `${locale} progressLabel must keep $2`);
   }
@@ -28,7 +31,7 @@ test('content and popup use localized labels without changing their layout sourc
   for (const key of ['openControlCenter', 'localOnly', 'viewMode', 'listDensity', 'ageFilter', 'selectConversation', 'progressLabel', 'selectionHint', 'sidebarLoadHintTitle', 'sidebarLoadHint']) {
     assert.match(content, new RegExp(`t\\('${key}'`));
   }
-  for (const key of ['popupHeading', 'popupStatus', 'popupOpen']) assert.match(popup, new RegExp(`data-i18n="${key}"`));
+  for (const key of ['extensionName', 'popupHeading', 'popupStatus', 'popupOpen']) assert.match(popup, new RegExp(`data-i18n="${key}"`));
 });
 
 test('content-script English fallback replaces Chrome-style and legacy substitutions', () => {
