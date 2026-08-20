@@ -93,7 +93,7 @@
     "message": "過去 90 日間"
   },
   "unsupported": {
-    "message": "TidyQueue は ChatGPT、Gemini、または Claude でのみ動作します。"
+    "message": "TidyQueue は対応する AI チャットサイトでのみ動作します。"
   },
   "retry": {
     "message": "再試行"
@@ -174,13 +174,13 @@
     "message": "先に会話を確認してください。"
   },
   "popupStatus": {
-    "message": "ChatGPT、Gemini、または Claude のタブを開き、ローカルコントロールセンターを起動してください。"
+    "message": "対応する AI チャットのタブを開き、ローカルコントロールセンターを起動してください。"
   },
   "popupOpen": {
     "message": "操作センターを開く"
   },
   "popupUnsupported": {
-    "message": "このタブで ChatGPT、Gemini、または Claude を先に開いてください。"
+    "message": "このタブで対応する AI チャットを先に開いてください。"
   },
   "popupReload": {
     "message": "この対応チャットタブを再読み込みして、もう一度お試しください。"

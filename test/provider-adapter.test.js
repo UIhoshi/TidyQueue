@@ -5,17 +5,29 @@ const path = require('node:path');
 const { ConversationAdapter } = require('../src/content/conversation-adapter.js');
 const { GeminiAdapter } = require('../src/content/gemini-adapter.js');
 const { ClaudeAdapter } = require('../src/content/claude-adapter.js');
+const { CopilotAdapter } = require('../src/content/copilot-adapter.js');
+const { PerplexityAdapter } = require('../src/content/perplexity-adapter.js');
+const { KimiAdapter } = require('../src/content/kimi-adapter.js');
 
 globalThis.ConversationAdapter = ConversationAdapter;
 globalThis.GeminiAdapter = GeminiAdapter;
 globalThis.ClaudeAdapter = ClaudeAdapter;
+globalThis.CopilotAdapter = CopilotAdapter;
+globalThis.PerplexityAdapter = PerplexityAdapter;
+globalThis.KimiAdapter = KimiAdapter;
 const { createProviderAdapter } = require('../src/content/provider-adapter.js');
 
-test('provider router keeps ChatGPT, Gemini, and Claude adapters separate by hostname', () => {
+test('provider router keeps every supported provider adapter separate by hostname', () => {
   const documentRef = { location: { origin: 'https://example.invalid' } };
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'chatgpt.com' } }) instanceof ConversationAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'gemini.google.com' } }) instanceof GeminiAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'claude.ai' } }) instanceof ClaudeAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'copilot.com' } }) instanceof CopilotAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'copilot.microsoft.com' } }) instanceof CopilotAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'perplexity.ai' } }) instanceof PerplexityAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'www.perplexity.ai' } }) instanceof PerplexityAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'kimi.com' } }) instanceof KimiAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'www.kimi.com' } }) instanceof KimiAdapter);
 });
 
 test('provider router refuses unsupported hosts', () => {
@@ -29,8 +41,11 @@ test('provider adapters are registered without expanding the extension permissio
   const popup = fs.readFileSync(path.join(root, 'src', 'popup', 'popup.js'), 'utf8');
 
   assert.deepEqual(manifest.permissions, ['activeTab']);
-  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://claude.ai/*']) assert.ok(contentScript.matches.includes(host));
-  assert.deepEqual(contentScript.js.slice(-5), ['src/content/gemini-adapter.js', 'src/content/claude-adapter.js', 'src/content/provider-adapter.js', 'src/content/cleanup-session.js', 'src/content/content.js']);
+  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://claude.ai/*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.com/*', 'https://www.kimi.com/*']) assert.ok(contentScript.matches.includes(host));
+  assert.deepEqual(contentScript.js.slice(-8), ['src/content/gemini-adapter.js', 'src/content/claude-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'src/content/cleanup-session.js', 'src/content/content.js']);
   assert.ok(popup.includes('gemini\\.google\\.com'));
   assert.ok(popup.includes('claude\\.ai'));
+  assert.ok(popup.includes('copilot\\.com'));
+  assert.ok(popup.includes('perplexity\\.ai'));
+  assert.ok(popup.includes('kimi\\.com'));
 });

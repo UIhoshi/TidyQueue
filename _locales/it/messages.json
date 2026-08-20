@@ -93,7 +93,7 @@
     "message": "Ultimi 90 giorni"
   },
   "unsupported": {
-    "message": "TidyQueue funziona solo su ChatGPT, Gemini o Claude."
+    "message": "TidyQueue funziona solo sui siti di chat IA supportati."
   },
   "retry": {
     "message": "Riprova"
@@ -174,13 +174,13 @@
     "message": "Controlla prima le conversazioni."
   },
   "popupStatus": {
-    "message": "Apri una scheda ChatGPT, Gemini o Claude, quindi avvia il centro di controllo locale."
+    "message": "Apri una scheda di chat IA supportata, quindi avvia il centro di controllo locale."
   },
   "popupOpen": {
     "message": "Apri il centro di controllo"
   },
   "popupUnsupported": {
-    "message": "Apri prima ChatGPT, Gemini o Claude in questa scheda."
+    "message": "Apri prima una chat IA supportata in questa scheda."
   },
   "popupReload": {
     "message": "Ricarica questa scheda di chat supportata, quindi riprova."

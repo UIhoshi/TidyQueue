@@ -93,7 +93,7 @@
     "message": "最近 90 天"
   },
   "unsupported": {
-    "message": "TidyQueue 仅可在 ChatGPT、Gemini 或 Claude 上运行。"
+    "message": "TidyQueue 仅可在受支持的 AI 聊天网站上运行。"
   },
   "retry": {
     "message": "重试"
@@ -174,13 +174,13 @@
     "message": "请先检查对话。"
   },
   "popupStatus": {
-    "message": "打开 ChatGPT、Gemini 或 Claude 标签页，然后启动本地控制中心。"
+    "message": "打开受支持的 AI 聊天标签页，然后启动本地控制中心。"
   },
   "popupOpen": {
     "message": "打开控制中心"
   },
   "popupUnsupported": {
-    "message": "请先在此标签页中打开 ChatGPT、Gemini 或 Claude。"
+    "message": "请先在此标签页中打开受支持的 AI 聊天网站。"
   },
   "popupReload": {
     "message": "请重新加载此支持的聊天标签页后重试。"
