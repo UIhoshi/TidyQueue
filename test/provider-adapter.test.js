@@ -23,13 +23,15 @@ test('provider router keeps every supported provider adapter separate by hostnam
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'copilot.microsoft.com' } }) instanceof CopilotAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'perplexity.ai' } }) instanceof PerplexityAdapter);
   assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'www.perplexity.ai' } }) instanceof PerplexityAdapter);
-  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'kimi.com' } }) instanceof KimiAdapter);
-  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'www.kimi.com' } }) instanceof KimiAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'kimi.ai' } }) instanceof KimiAdapter);
+  assert.ok(createProviderAdapter(documentRef, { location: { hostname: 'www.kimi.ai' } }) instanceof KimiAdapter);
 });
 
 test('provider router refuses unsupported hosts', () => {
   assert.throws(() => createProviderAdapter({}, { location: { hostname: 'example.com' } }), /Unsupported TidyQueue host/);
   assert.throws(() => createProviderAdapter({}, { location: { hostname: 'claude.ai' } }), /Unsupported TidyQueue host/);
+  assert.throws(() => createProviderAdapter({}, { location: { hostname: 'kimi.com' } }), /Unsupported TidyQueue host/);
+  assert.throws(() => createProviderAdapter({}, { location: { hostname: 'www.kimi.com' } }), /Unsupported TidyQueue host/);
 });
 
 test('provider adapters retain only the five supported provider families and no debugger permission', () => {
@@ -41,12 +43,14 @@ test('provider adapters retain only the five supported provider families and no 
   assert.deepEqual(manifest.permissions, ['activeTab']);
   assert.equal(manifest.permissions.includes('debugger'), false);
   assert.equal(contentScript.matches.includes('https://claude.ai/*'), false);
+  assert.equal(contentScript.matches.includes('https://kimi.com/*'), false);
+  assert.equal(contentScript.matches.includes('https://www.kimi.com/*'), false);
   assert.equal(contentScript.js.includes('src/content/claude-adapter.js'), false);
-  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.com/*', 'https://www.kimi.com/*']) assert.ok(contentScript.matches.includes(host));
+  for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.ai/*', 'https://www.kimi.ai/*']) assert.ok(contentScript.matches.includes(host));
   assert.deepEqual(contentScript.js.slice(-7), ['src/content/gemini-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'src/content/cleanup-session.js', 'src/content/content.js']);
   assert.ok(popup.includes('gemini\\.google\\.com'));
   assert.equal(popup.includes('claude\\.ai'), false);
   assert.ok(popup.includes('copilot\\.com'));
   assert.ok(popup.includes('perplexity\\.ai'));
-  assert.ok(popup.includes('kimi\\.com'));
+  assert.ok(popup.includes('kimi\\.ai'));
 });

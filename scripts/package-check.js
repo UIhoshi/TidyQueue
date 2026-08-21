@@ -12,7 +12,8 @@ if (manifest.icons?.['128'] !== 'assets/tidyqueue-icon-128.png') throw new Error
 if (manifest.action?.default_icon?.['128'] !== manifest.icons['128']) throw new Error('Extension action must use the registered 128px icon');
 if (!Array.isArray(manifest.content_scripts) || manifest.content_scripts.length !== 1) throw new Error('Exactly one content script registration is required');
 const matches = manifest.content_scripts[0].matches || [];
-for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.com/*', 'https://www.kimi.com/*']) if (!matches.includes(host)) throw new Error(`Missing host match: ${host}`);
+for (const host of ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://gemini.google.com/app*', 'https://copilot.com/*', 'https://copilot.microsoft.com/*', 'https://perplexity.ai/*', 'https://www.perplexity.ai/*', 'https://kimi.ai/*', 'https://www.kimi.ai/*']) if (!matches.includes(host)) throw new Error(`Missing host match: ${host}`);
+if (matches.includes('https://kimi.com/*') || matches.includes('https://www.kimi.com/*')) throw new Error('Kimi China hosts must not be registered');
 if (matches.includes('https://claude.ai/*') || manifest.content_scripts[0].js.includes('src/content/claude-adapter.js')) throw new Error('Claude support must not be registered');
 if (manifest.permissions?.includes('debugger')) throw new Error('TidyQueue must not request debugger permission');
 for (const file of requiredFiles) if (!fs.existsSync(path.join(root, file))) throw new Error(`Missing required file: ${file}`);

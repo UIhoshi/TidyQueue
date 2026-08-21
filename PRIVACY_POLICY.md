@@ -1,6 +1,6 @@
 # TidyQueue: AI Chat Bulk Deleter — Privacy Policy
 
-**Effective date:** August 21, 2026
+**Effective date:** August 22, 2026
 
 TidyQueue: AI Chat Bulk Deleter ("TidyQueue") is a local-only Chrome extension that helps users review, filter, and delete their own supported AI-chat conversations after explicit confirmation.
 
@@ -23,7 +23,7 @@ TidyQueue does not read or send supported-provider message content to a server.
 TidyQueue requests only the permissions required for its single purpose:
 
 - **`activeTab`** is used after the user clicks the extension action to check whether the active tab is an eligible supported chat page and to open the local control center there.
-- **Host access for `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, and `kimi.com`** is used to load the local interface, read the visible conversation sidebar, and perform an explicitly confirmed deletion through the user's existing provider session.
+- **Host access for `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, `www.perplexity.ai`, `kimi.ai`, and `www.kimi.ai`** is used to load the local interface, read the visible conversation sidebar, and perform an explicitly confirmed deletion through the user's existing provider session.
 
 The extension does not request access to browsing history, downloads, cookies, identity information, clipboard data, or data on unrelated websites.
 

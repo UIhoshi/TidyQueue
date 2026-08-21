@@ -97,3 +97,39 @@
 - Correction: Remove the URL-based queue pause for this SPA workflow and refresh the remembered route after each successful guarded deletion. Use a direct opacity-only Web Animations API animation for changed upcoming rows, avoiding deferred class/layout mutation.
 - Prevention: Treat platform-generated navigation as part of the operation when the destructive action is scoped to a selected stable item ID; do not layer route guards that will invalidate a successful queue.
 - Verification: Static syntax checks, ten Node unit tests, and package validation passed; targeted logged-in ChatGPT verification remains required.
+## 2026-08-22 — Kimi support targeted the wrong regional host
+- Symptom: The extension registered `kimi.com`, but the requested international Kimi experience is at `kimi.ai`.
+- Root cause: The earlier provider integration did not confirm the intended regional Kimi host before
+  registering manifest and popup scopes.
+- Correction: Replaced all active Kimi host registrations, popup recognition, adapter routing, route
+  fixtures, and public host disclosures with `kimi.ai`/`www.kimi.ai`; `kimi.com` is now rejected.
+- Prevention: For provider integrations with regional domains, confirm the exact user-targeted host
+  before implementing and assert both the allowed and excluded host sets in package validation.
+- Verification: Provider/unit and package regressions cover the Kimi AI hosts and the removed Kimi
+  China hosts; logged-in Kimi AI DOM verification remains required.
+## 2026-08-22 — Provider sidebar/menu semantics drifted from adapter assumptions
+- Symptom: Copilot initially showed visible sidebar conversations while TidyQueue found none. Once
+  the visible Copilot sidebar was scrolled fully, scanning worked, but deletion paused because the
+  open floating menu could not be located. Kimi AI listed conversations and found the visible
+  Chinese `删除` command, then paused while finding its native confirmation.
+- Root cause: Copilot now renders many sidebar conversations as `[role="link"]` divs instead of
+  anchors; each row’s nested `conversation-options-<id>` control carries its stable ID, while the
+  deletion menu is mounted at `data-outside-events-ignore` and may remain `visibility:hidden` when the
+  extension sees it, even though its selected-conversation delete command is mounted. Kimi uses a provider popover for the
+  first command and may mount its native confirmation without a semantic dialog root.
+- Correction: Copilot discovers only its list-scoped role-link rows with a real
+  `conversation-options-<id>` control, retaining route-link support as a fallback, detects the
+  provider floating-menu root, accepts its mounted hidden delete command only when that command's title
+  includes the selected conversation title, and on an explicit extension open best-effort scrolls its detected
+  history ancestors, brings the provider sentinel into view, or invokes only its scoped visible
+  **Show more** control before restoring prior user positions and snapshotting. Kimi requires a
+  exact visible selected-row `删除` command rather than a text-containing menu container, then
+  finds a distinct visible native confirmation control while excluding the first action from reuse.
+- Prevention: For provider adapters, inspect the current public bundle and use stable provider
+  identifiers or scoped container contracts. If a user explicitly asks to avoid manual sidebar
+  scrolling, restrict any programmatic materialization to the detected provider history viewport,
+  bound it, restore the original position, and never advance a destructive queue if any required
+  control is missing.
+- Verification: 67 Node tests and package validation pass. The supplied DOM verifies the current Copilot
+  menu root is `visibility:hidden` and the delete menuitem title binds it to the selected conversation.
+  The user confirmed both Kimi AI and Copilot deletion work after the latest extension reload.

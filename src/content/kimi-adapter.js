@@ -1,11 +1,16 @@
 (function (global) {
   const KIMI_DELETE_LABELS = ['delete', '删除', 'eliminar', 'supprimer', 'löschen', '削除', '삭제', 'excluir', 'elimina'];
   const KIMI_MORE_LABELS = ['more', 'option', 'menu', 'action', '更多', 'más', 'plus', 'mehr', 'その他', '더보기', 'mais', 'altro'];
+  const KIMI_CONFIRM_LABELS = [...KIMI_DELETE_LABELS, 'confirm', '确认', '確定', '确定', 'continue'];
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const normalizedText = (node) => (node?.textContent || node?.getAttribute?.('aria-label') || node?.getAttribute?.('title') || '').trim().toLowerCase();
   const labelIncludes = (node, labels) => labels.some((label) => normalizedText(node).includes(label));
+  const findLabeledAction = (nodes, labels) => {
+    const visible = nodes.filter(isVisible);
+    return visible.find((node) => labels.includes(normalizedText(node))) || visible.find((node) => labelIncludes(node, labels)) || null;
+  };
 
-  function kimiConversationIdFromHref(href, base = global.location?.origin || 'https://www.kimi.com') {
+  function kimiConversationIdFromHref(href, base = global.location?.origin || 'https://www.kimi.ai') {
     try {
       const path = new URL(href, base).pathname;
       const match = path.match(/^\/chat\/([^/?#]+)$/);
@@ -61,7 +66,7 @@
       if (!deleteAction) throw new Error('Kimi delete action was not found in the selected menu.');
       deleteAction.click();
 
-      const confirm = await waitFor(() => this.findVisibleConfirmation(), 2500);
+      const confirm = await waitFor(() => this.findVisibleConfirmation(deleteAction), 2500);
       if (!confirm) throw new Error('Kimi delete confirmation dialog was not found.');
       confirm.click();
 
@@ -100,18 +105,23 @@
     }
 
     findVisibleMenuAction() {
-      const menuRoots = [...this.document.querySelectorAll('[role="menu"], [role="listbox"], [data-menu]')].filter(isVisible);
-      const candidates = menuRoots.flatMap((root) => [...root.querySelectorAll('[role="menuitem"], button, [role="button"]')]);
-      return candidates.find((node) => isVisible(node) && labelIncludes(node, KIMI_DELETE_LABELS)) || null;
+      const menuRootSelector = '[role="menu"], [role="listbox"], [data-menu], [data-radix-popper-content-wrapper], [data-popper-placement], [data-state="open"], [class*="menu" i], [class*="popover" i]';
+      const actionSelector = '[role="menuitem"], button, [role="button"], [tabindex], [data-testid], [data-test-id], [class*="item" i]';
+      const menuRoots = [...this.document.querySelectorAll(menuRootSelector)].filter(isVisible);
+      const candidates = menuRoots.flatMap((root) => [...root.querySelectorAll(actionSelector)]);
+      return findLabeledAction(candidates, KIMI_DELETE_LABELS);
     }
 
-    findVisibleConfirmation() {
-      const dialogs = [...this.document.querySelectorAll('[role="dialog"], [role="alertdialog"]')].filter(isVisible);
+    findVisibleConfirmation(menuAction = null) {
+      const isMenuAction = (node) => node === menuAction || menuAction?.contains?.(node) || node?.contains?.(menuAction);
+      const dialogSelector = '[role="dialog"], [role="alertdialog"], .modal-mask, .modal-container, [class*="confirm" i]';
+      const dialogs = [...this.document.querySelectorAll(dialogSelector)].filter(isVisible);
       for (const dialog of dialogs) {
-        const button = [...dialog.querySelectorAll('button, [role="button"]')].find((node) => isVisible(node) && labelIncludes(node, KIMI_DELETE_LABELS));
+        const button = findLabeledAction([...dialog.querySelectorAll('button, [role="button"]')].filter((node) => !isMenuAction(node)), KIMI_CONFIRM_LABELS);
         if (button) return button;
       }
-      return null;
+      const fallbackCandidates = [...this.document.querySelectorAll('button, [role="button"]')];
+      return findLabeledAction(fallbackCandidates.filter((node) => !isMenuAction(node)), KIMI_DELETE_LABELS);
     }
   }
 

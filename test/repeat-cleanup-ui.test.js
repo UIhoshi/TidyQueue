@@ -12,8 +12,9 @@ test('completed queue offers an in-panel fresh-batch action wired to localized c
 
   assert.match(content, /data-queue="next-batch" data-action="next-batch"/);
   assert.match(content, /snapshot\.status !== 'completed'/);
-  assert.match(content, /function beginNextBatch\(\)/);
-  assert.match(content, /refreshBatchState\(state, adapter\.list\(\)\)/);
+  assert.match(content, /async function beginNextBatch\(\)/);
+  assert.match(content, /async function collectConversations\(\)/);
+  assert.match(content, /refreshBatchState\(state, await collectConversations\(\)\)/);
   assert.match(content, /t\('deleteMore'\)/);
   assert.ok(scripts.indexOf('src/content/cleanup-session.js') >= 0);
   assert.ok(scripts.indexOf('src/content/cleanup-session.js') < scripts.indexOf('src/content/content.js'));

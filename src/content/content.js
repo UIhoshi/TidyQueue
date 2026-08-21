@@ -31,9 +31,15 @@
     shadow.addEventListener('pointerup', handlePointerUp);
   }
 
-  function open() {
+  async function collectConversations() {
+    const prepared = await adapter.prepareList?.();
+    return prepared ?? adapter.list();
+  }
+
+  async function open() {
     createShell();
-    globalThis.quickdelSession.refreshBatchState(state, adapter.list());
+    const items = await collectConversations();
+    globalThis.quickdelSession.refreshBatchState(state, items);
     state.open = true;
     state.focusSearchOnOpen = true;
     applyTheme();
@@ -361,13 +367,13 @@
     queue.start(items);
   }
 
-  function beginNextBatch() {
+  async function beginNextBatch() {
     queueEpoch += 1;
     queueSafetyGuard?.stop();
     queue = null;
     pendingQueueSnapshot = null;
     if (queueRenderFrame) { window.cancelAnimationFrame(queueRenderFrame); queueRenderFrame = 0; }
-    globalThis.quickdelSession.refreshBatchState(state, adapter.list());
+    globalThis.quickdelSession.refreshBatchState(state, await collectConversations());
     shadow.getElementById('qd-modal').innerHTML = '';
     render();
   }

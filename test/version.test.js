@@ -9,6 +9,6 @@ const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 
 
 test('extension release metadata is Chrome-valid and consistent', () => {
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
-  assert.equal(manifest.version, '1.1.1');
+  assert.equal(manifest.version, '1.1.2');
   assert.equal(packageJson.version, manifest.version);
 });

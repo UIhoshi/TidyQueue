@@ -48,7 +48,7 @@ TidyQueue turns a crowded supported AI-chat sidebar into a clear, reviewable cle
 
 ## Safety and privacy
 
-- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, and `kimi.com`.
+- TidyQueue runs only on `chatgpt.com`, `chat.openai.com`, `gemini.google.com/app`, `copilot.com`, `copilot.microsoft.com`, `perplexity.ai`, `www.perplexity.ai`, `kimi.ai`, and `www.kimi.ai`.
 - Conversation titles, selected items, and queue state stay only in the current tab's memory.
 - Deletion requires an explicit review-and-confirm step.
 - The DOM adapter pauses rather than continuing if provider controls are missing or changed.
