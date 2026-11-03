@@ -133,3 +133,10 @@
 - Verification: 67 Node tests and package validation pass. The supplied DOM verifies the current Copilot
   menu root is `visibility:hidden` and the delete menuitem title binds it to the selected conversation.
   The user confirmed both Kimi AI and Copilot deletion work after the latest extension reload.
+## 2026-11-03 — ChatGPT nested sidebar links 4–7 levels deep and replaced the more-button label with a Radix menu trigger
+- Symptom: TidyQueue scanned ChatGPT conversations normally, but paused on the first deletion with `Conversation action menu was not found for the selected sidebar item.`
+- Root cause: ChatGPT's updated sidebar nests `a[href*="/c/"]` 4 levels inside `[data-sidebar-cycle-item][role="group"]` (and 7 levels inside `[data-sidebar-chatgpt-conversation-key][role="listitem"]`), replaced the old `more` button copy/testId with a Radix menu trigger (`button[aria-haspopup="menu"]`, e.g., `aria-label="チャットのアクション"` alongside a pin button), and opens the Radix menu cleanly on `pointerdown` + `click`.
+- Correction: Extended `closestActionContainer()` to walk up to 9 ancestors (with fallback to `closest('[data-sidebar-cycle-item], .sidebar-item, [data-sidebar-chatgpt-conversation-key], [role="listitem"], [role="group"], li')`), prioritized visible `button[aria-haspopup="menu"]` in `findActionButton()`, expanded localized action labels, and dispatched pointer/mouse activation events before `.click()` in `activateControl()`.
+- Prevention: Prefer semantic menu-trigger attributes (`aria-haspopup="menu"`) over brittle localized text alone, and ensure ancestor traversal covers deep modern flex/marquee wrapper chains.
+- Verification: 70 Node unit tests and `npm run package:check` pass; updated `dist/TidyQueue-1.1.2-chrome.zip` rebuilt for Chrome reload verification.
+

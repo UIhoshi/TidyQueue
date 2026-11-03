@@ -41,3 +41,33 @@ test('adapter refuses a confirmation button outside a visible dialog', () => {
   const adapter = new ConversationAdapter(fakeDocument, {});
   assert.equal(adapter.findVisibleConfirmation(['delete']), confirm);
 });
+
+test('ChatGPT adapter finds the ancestor that owns the visible more-actions button', () => {
+  const unrelatedButton = { hidden: false, textContent: 'Pin', getAttribute: () => null };
+  const moreButton = { hidden: false, textContent: 'More options', getAttribute: () => null };
+  const actionRow = { parentElement: null, querySelectorAll: () => [moreButton] };
+  const nestedCopy = { parentElement: actionRow, querySelectorAll: () => [unrelatedButton] };
+  const link = { parentElement: nestedCopy };
+  const adapter = new ConversationAdapter({}, {});
+  assert.equal(adapter.closestActionContainer(link), actionRow);
+});
+
+test('ChatGPT adapter finds the deep Radix menu trigger button by aria-haspopup="menu" and ignores pin button', () => {
+  const pinButton = { hidden: false, textContent: '', getAttribute: (name) => name === 'aria-label' ? 'チャットをピン留め' : null };
+  const radixMenuTrigger = {
+    hidden: false,
+    textContent: '',
+    getAttribute: (name) => name === 'aria-haspopup' ? 'menu' : name === 'aria-label' ? 'チャットのアクション' : null
+  };
+  const groupRow = { parentElement: null, querySelectorAll: () => [pinButton, radixMenuTrigger] };
+  const level3 = { parentElement: groupRow, querySelectorAll: () => [] };
+  const level2 = { parentElement: level3, querySelectorAll: () => [] };
+  const level1 = { parentElement: level2, querySelectorAll: () => [] };
+  const link = { parentElement: level1, querySelectorAll: () => [] };
+  const adapter = new ConversationAdapter({}, {});
+  const container = adapter.closestActionContainer(link);
+  assert.equal(container, groupRow);
+  assert.equal(adapter.findActionButton(container), radixMenuTrigger);
+});
+
+

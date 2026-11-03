@@ -46,3 +46,17 @@ test('Gemini adapter finds the ancestor that actually owns the visible more-acti
   const adapter = new GeminiAdapter({}, {});
   assert.equal(adapter.findActionContainer(link), actionRow);
 });
+
+test('Gemini adapter supports Material CDK overlay menu and dialog containers', () => {
+  const visibleDelete = { hidden: false, textContent: 'Delete', getAttribute: () => null };
+  const cdkMenu = { hidden: false, getAttribute: () => null, querySelectorAll: () => [visibleDelete] };
+  const confirm = { hidden: false, textContent: 'Delete', getAttribute: () => null };
+  const matDialog = { hidden: false, getAttribute: () => null, querySelectorAll: () => [confirm] };
+  const fakeDocument = {
+    querySelectorAll: (selector) => selector.includes('cdk-overlay-pane') ? [cdkMenu] : selector.includes('mat-dialog-container') ? [matDialog] : []
+  };
+  const adapter = new GeminiAdapter(fakeDocument, {});
+  assert.equal(adapter.findVisibleMenuAction(), visibleDelete);
+  assert.equal(adapter.findVisibleConfirmation(), confirm);
+});
+

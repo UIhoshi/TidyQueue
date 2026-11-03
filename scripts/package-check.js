@@ -1,8 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const requiredFiles = ['src/popup/popup.html', 'src/popup/popup.js', 'src/content/content.js', 'src/content/cleanup-session.js', 'src/content/queue-controller.js', 'src/content/queue-safety-guard.js', 'src/content/conversation-adapter.js', 'src/content/gemini-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'assets/tidyqueue-icon-128.png'];
-const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\\uFEFF/, ''));
+const requiredFiles = ['src/popup/popup.html', 'src/popup/popup.css', 'src/popup/popup.js', 'src/content/i18n.js', 'src/content/content.js', 'src/content/cleanup-session.js', 'src/content/queue-controller.js', 'src/content/queue-safety-guard.js', 'src/content/conversation-adapter.js', 'src/content/gemini-adapter.js', 'src/content/copilot-adapter.js', 'src/content/perplexity-adapter.js', 'src/content/kimi-adapter.js', 'src/content/provider-adapter.js', 'assets/tidyqueue-icon-128.png'];
+const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''));
 const manifest = readJson(path.join(root, 'manifest.json'));
 const packageJson = readJson(path.join(root, 'package.json'));
 if (!/^\d+\.\d+\.\d+$/.test(manifest.version || '')) throw new Error('manifest version must be a three-part Chrome version');

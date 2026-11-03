@@ -1,4 +1,4 @@
-﻿const test = require('node:test');
+const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -28,7 +28,7 @@ test('all nine browser locales provide every UI message and dynamic placeholder'
 test('content and popup use localized labels without changing their layout source', () => {
   const content = fs.readFileSync(path.join(root, 'src', 'content', 'content.js'), 'utf8');
   const popup = fs.readFileSync(path.join(root, 'src', 'popup', 'popup.html'), 'utf8');
-  for (const key of ['openControlCenter', 'localOnly', 'viewMode', 'listDensity', 'ageFilter', 'selectConversation', 'progressLabel', 'selectionHint', 'sidebarLoadHintTitle', 'sidebarLoadHint']) {
+  for (const key of ['openControlCenter', 'localOnly', 'viewMode', 'listDensity', 'ageFilter', 'selectConversation', 'progressLabel', 'selectionHint', 'sidebarLoadHintTitle', 'sidebarLoadHint', 'deleteMore']) {
     assert.match(content, new RegExp(`t\\('${key}'`));
   }
   for (const key of ['extensionName', 'popupHeading', 'popupStatus', 'popupOpen']) assert.match(popup, new RegExp(`data-i18n="${key}"`));
@@ -38,7 +38,8 @@ test('content-script English fallback replaces Chrome-style and legacy substitut
   const context = { globalThis: {} };
   context.globalThis.globalThis = context.globalThis;
   vm.runInNewContext(fs.readFileSync(path.join(root, 'src', 'content', 'i18n.js'), 'utf8'), context);
-  const { t } = context.globalThis.quickdelI18n;
+  const { t, fallback } = context.globalThis.quickdelI18n;
+  assert.deepEqual(Object.keys(fallback).sort(), Object.keys(english).sort(), 'fallback must cover every English catalog key');
   assert.equal(t('selectConversation', ['Example']), 'Select Example');
   assert.equal(t('progressLabel', ['2', '5']), '2 of 5 conversations completed');
   assert.equal(t('milestone', ['10']), 'Brief pacing pause after 10');

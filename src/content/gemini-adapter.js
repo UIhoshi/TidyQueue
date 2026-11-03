@@ -100,13 +100,13 @@
     }
 
     findVisibleMenuAction() {
-      const menuRoots = [...this.document.querySelectorAll('[role="menu"], [role="listbox"], [data-menu]')].filter(isVisible);
+      const menuRoots = [...this.document.querySelectorAll('[role="menu"], [role="listbox"], [data-menu], .mat-mdc-menu-panel, .cdk-overlay-pane')].filter(isVisible);
       const candidates = menuRoots.flatMap((root) => [...root.querySelectorAll('[role="menuitem"], button, [role="button"]')]);
       return candidates.find((node) => isVisible(node) && labelIncludes(node, GEMINI_DELETE_LABELS)) || null;
     }
 
     findVisibleConfirmation() {
-      const dialogs = [...this.document.querySelectorAll('[role="dialog"], [role="alertdialog"]')].filter(isVisible);
+      const dialogs = [...this.document.querySelectorAll('[role="dialog"], [role="alertdialog"], mat-dialog-container, .mat-mdc-dialog-container')].filter(isVisible);
       for (const dialog of dialogs) {
         const button = [...dialog.querySelectorAll('button, [role="button"]')].find((node) => isVisible(node) && labelIncludes(node, GEMINI_DELETE_LABELS));
         if (button) return button;
