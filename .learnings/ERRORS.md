@@ -139,4 +139,11 @@
 - Correction: Extended `closestActionContainer()` to walk up to 9 ancestors (with fallback to `closest('[data-sidebar-cycle-item], .sidebar-item, [data-sidebar-chatgpt-conversation-key], [role="listitem"], [role="group"], li')`), prioritized visible `button[aria-haspopup="menu"]` in `findActionButton()`, expanded localized action labels, and dispatched pointer/mouse activation events before `.click()` in `activateControl()`.
 - Prevention: Prefer semantic menu-trigger attributes (`aria-haspopup="menu"`) over brittle localized text alone, and ensure ancestor traversal covers deep modern flex/marquee wrapper chains.
 - Verification: 70 Node unit tests and `npm run package:check` pass; updated `dist/TidyQueue-1.1.2-chrome.zip` rebuilt for Chrome reload verification.
+## 2026-11-03 — Localized extensionName in non-English locale catalogs overrode the English Chrome Web Store title
+- Symptom: After uploading `1.1.2` to the Chrome Web Store, the Developer Dashboard and Chinese store listing displayed `TidyQueue：AI网页聊天批量删除` instead of the intended English product title `TidyQueue: AI Chat Bulk Deleter`.
+- Root cause: Because `manifest.json` uses `"name": "__MSG_extensionName__"`, Chrome Web Store uses each locale's `extensionName` as the store listing title for that locale. Translating `extensionName` in `_locales/zh_CN/messages.json` (and other non-English catalogs) replaced the English product title, and pre-release review did not flag that `extensionName` was localized.
+- Correction: Unified `extensionName` to `"TidyQueue: AI Chat Bulk Deleter"` across all nine `_locales/*/messages.json` files and enforced exact equality in `test/i18n.test.js`.
+- Prevention: Never translate the product/extension title (`extensionName`) across `_locales/*/messages.json` unless explicitly requested by the user; keep `extensionName` strictly identical to the canonical English title across all locales.
+- Verification: `test/i18n.test.js` asserts exact match `TidyQueue: AI Chat Bulk Deleter` for all 9 locales; `npm test` and `npm run package:check` pass.
+
 
