@@ -26,6 +26,9 @@ const englishMessages = readJson(path.join(root, '_locales', 'en', 'messages.jso
 for (const locale of locales) {
   const file = path.join(root, '_locales', locale, 'messages.json');
   const messages = readJson(file);
+  if (messages.extensionName?.message !== 'TidyQueue: AI Chat Bulk Deleter') {
+    throw new Error(`Locale ${locale} must keep extensionName strictly in English: "TidyQueue: AI Chat Bulk Deleter"`);
+  }
   for (const key of Object.keys(englishMessages)) {
     if (!messages[key]?.message) throw new Error(`Locale ${locale} lacks ${key}`);
   }
