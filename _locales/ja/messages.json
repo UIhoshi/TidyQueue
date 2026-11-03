@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "TidyQueue：AIチャット一括削除"
+    "message": "TidyQueue: AI Chat Bulk Deleter"
   },
   "extensionDescription": {
     "message": "自分のAIチャットをローカルで確認して一括削除"

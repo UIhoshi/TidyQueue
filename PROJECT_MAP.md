@@ -1,7 +1,7 @@
 # Project Map
 
 ## L1 — Entry & Surface
-- `manifest.json`: Chrome MV3 release registration at version `1.1.2`, localized descriptive product name (`TidyQueue: AI Chat Bulk Deleter` / `TidyQueue：AI网页聊天批量删除`), TidyQueue extension/action icon, content-script registration for ChatGPT, Gemini, Copilot, Perplexity, and Kimi, and only `activeTab` permission.
+- `manifest.json`: Chrome MV3 release registration at version `1.1.2`, unified English descriptive product name (`TidyQueue: AI Chat Bulk Deleter`), TidyQueue extension/action icon, content-script registration for ChatGPT, Gemini, Copilot, Perplexity, and Kimi, and only `activeTab` permission.
 - `src/popup/`: browser-locale-aware extension-action launch surface that sends an open message only to an active supported AI-chat tab.
 - `src/content/content.js`: browser-locale-aware Shadow-DOM control center plus an always-visible, current-session-draggable TidyQueue launcher in eligible supported tabs. A capture-phase outside-pointer handler dismisses the panel when the user clicks the underlying page.
 - `PRIVACY_POLICY.md`: public, English privacy-policy surface for the Chrome Web Store submission and repository readers, including the current five supported provider families.

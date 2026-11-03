@@ -19,7 +19,7 @@ test('all nine browser locales provide every UI message and dynamic placeholder'
     const catalog = JSON.parse(fs.readFileSync(path.join(localesDir, locale, 'messages.json'), 'utf8'));
     assert.deepEqual(Object.keys(catalog).sort(), Object.keys(english).sort(), `${locale} must match the English message catalog`);
     for (const key of Object.keys(english)) assert.ok(catalog[key].message, `${locale} lacks ${key}`);
-    assert.match(catalog.extensionName.message, /^TidyQueue[:：]/, `${locale} must use the descriptive TidyQueue title format`);
+    assert.equal(catalog.extensionName.message, 'TidyQueue: AI Chat Bulk Deleter', `${locale} must use the unified English extensionName`);
     for (const key of ['milestone', 'selectConversation', 'progressLabel']) assert.match(catalog[key].message, /\$1/, `${locale} ${key} must keep $1`);
     assert.match(catalog.progressLabel.message, /\$2/, `${locale} progressLabel must keep $2`);
   }
