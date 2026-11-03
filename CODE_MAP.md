@@ -1,7 +1,7 @@
 # Code Map
 
 ## Entrypoints
-- `manifest.json` — MV3 registration, current `1.1.2` release version, localized descriptive product name/action title, TidyQueue action popup/icon, content-script order, and supported ChatGPT/Gemini/Copilot/Perplexity/Kimi host scope.
+- `manifest.json` — MV3 registration, current `1.1.3` release version, localized descriptive product name/action title, TidyQueue action popup/icon, content-script order, and supported ChatGPT/Gemini/Copilot/Perplexity/Kimi host scope.
 - `src/popup/popup.js` — localizes popup copy through Chrome i18n, validates a supported active tab across all five provider families, then sends `quickdel:open`.
 - `src/content/content.js` — creates the unchanged browser-locale-aware Shadow-DOM UI and draggable persistent launcher, owns ephemeral selection/density/theme state, selects the provider adapter, responds to the popup, awaits an optional `prepareList()` before it snapshots conversations, starts/stops the active queue's route and tab-visibility safety guard, and offers a completed-only localized **Delete more** action that refreshes the provider list without closing the control center. Its generic lazy-sidebar warning remains for providers that need manual loading. Its visual cards clamp long titles and summaries to two lines; list rows use a one-line title ellipsis to remain contained.
 
